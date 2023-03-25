@@ -13,13 +13,14 @@ import com.senac.aesthetics.repository.AgendamentoRepository;
 
 @Service
 public class AgendamentoService {
-    
+
     // Objetos:
     @Autowired
     private AgendamentoRepository agendamentoRepository;
 
     // Métodos:
-    public Page<Agendamento> obterTodosAgendamentos(Integer numeroPagina, Integer quantidadePorPagina, String ordenarPor) {
+    public Page<Agendamento> obterTodosAgendamentos(Integer numeroPagina, Integer quantidadePorPagina,
+            String ordenarPor) {
         Pageable pagina = PageRequest.of(numeroPagina, quantidadePorPagina, Sort.by(ordenarPor));
 
         return agendamentoRepository.findAll(pagina);
