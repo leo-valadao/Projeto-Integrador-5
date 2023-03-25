@@ -36,7 +36,7 @@ public class ServicoResource {
         return ResponseEntity.ok(servicos);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(params = "id")
     public ResponseEntity<Servico> obterServicoPorId(@RequestParam(name = "id") Long id) {
         Servico servico = servicoService.obterServicoPorId(id);
 
@@ -57,7 +57,7 @@ public class ServicoResource {
         return ResponseEntity.ok(servicoAtualizado);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(params = "id")
     public ResponseEntity<Void> excluirServico(@RequestParam(name = "id") Long id) {
         servicoService.excluirServico(id);
 

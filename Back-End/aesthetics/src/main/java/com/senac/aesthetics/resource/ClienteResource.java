@@ -36,7 +36,7 @@ public class ClienteResource {
         return ResponseEntity.ok(clientes);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(params = "id")
     public ResponseEntity<Cliente> obterClientePorId(@RequestParam(name = "id") Long id) {
         Cliente cliente = clienteService.obterClientePorId(id);
 
@@ -57,7 +57,7 @@ public class ClienteResource {
         return ResponseEntity.ok(clienteAtualizado);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(params = "id")
     public ResponseEntity<Void> excluirCliente(@RequestParam(name = "id") Long id) {
         clienteService.excluirCliente(id);
 

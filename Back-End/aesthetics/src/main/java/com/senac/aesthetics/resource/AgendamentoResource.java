@@ -37,7 +37,7 @@ public class AgendamentoResource {
         return ResponseEntity.ok(agendamentos);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(params = "id")
     public ResponseEntity<Agendamento> obterAgendamentoPorId(@RequestParam(name = "id") Long id) {
         Agendamento agendamento = agendamentoService.obterAgendamentoPorId(id);
 
@@ -58,7 +58,7 @@ public class AgendamentoResource {
         return ResponseEntity.ok(agendamentoAtualizado);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(params = "id")
     public ResponseEntity<Void> excluirAgendamento(@RequestParam(name = "id") Long id) {
         agendamentoService.excluirAgendamento(id);
 

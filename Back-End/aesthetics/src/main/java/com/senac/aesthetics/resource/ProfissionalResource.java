@@ -37,7 +37,7 @@ public class ProfissionalResource {
         return ResponseEntity.ok(profissionais);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(params = "id")
     public ResponseEntity<Profissional> obterProfissionalPorId(@RequestParam(name = "id") Long id) {
         Profissional profissional = profissionalService.obterProfissionalPorId(id);
 
@@ -58,7 +58,7 @@ public class ProfissionalResource {
         return ResponseEntity.ok(profissionalAtualizado);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(params = "id")
     public ResponseEntity<Void> excluirProfissional(@RequestParam(name = "id") Long id) {
         profissionalService.excluirProfissional(id);
 
