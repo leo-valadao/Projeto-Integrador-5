@@ -12,54 +12,54 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.senac.aesthetics.domain.Cliente;
-import com.senac.aesthetics.service.ClienteService;
+import com.senac.aesthetics.domain.Servico;
+import com.senac.aesthetics.service.ServicoService;
 
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("api/v1/cliente")
-public class ClienteResource {
+@RequestMapping("api/v1/servico")
+public class ServicoResource {
 
     // Objetos:
     @Autowired
-    private ClienteService clienteService;
+    private ServicoService servicoService;
 
     // API's:
     @GetMapping
-    public ResponseEntity<Page<Cliente>> obterTodosClientes(
+    public ResponseEntity<Page<Servico>> obterTodosServicos(
             @RequestParam(name = "numeroPagina", defaultValue = "0") Integer numeroPagina,
             @RequestParam(name = "quantidadePorPagina", defaultValue = "25") Integer quantidadePorPagina,
             @RequestParam(name = "ordenarPor", defaultValue = "id") String ordernarPor) {
-        Page<Cliente> clientes = clienteService.obterTodosClientes(numeroPagina, quantidadePorPagina, ordernarPor);
+        Page<Servico> servicos = servicoService.obterTodosServicos(numeroPagina, quantidadePorPagina, ordernarPor);
 
-        return ResponseEntity.ok(clientes);
+        return ResponseEntity.ok(servicos);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Cliente> obterClientePorId(@RequestParam(name = "id") Long id) {
-        Cliente cliente = clienteService.obterClientePorId(id);
+    public ResponseEntity<Servico> obterServicoPorId(@RequestParam(name = "id") Long id) {
+        Servico servico = servicoService.obterServicoPorId(id);
 
-        return ResponseEntity.ok(cliente);
+        return ResponseEntity.ok(servico);
     }
 
     @PostMapping
-    public ResponseEntity<Cliente> inserirCliente(@RequestBody @Valid Cliente cliente) {
-        Cliente clienteInserido = clienteService.inserirCliente(cliente);
+    public ResponseEntity<Servico> inserirServico(@RequestBody @Valid Servico servico) {
+        Servico servicoInserido = servicoService.inserirServico(servico);
 
-        return ResponseEntity.created(null).body(clienteInserido);
+        return ResponseEntity.created(null).body(servicoInserido);
     }
 
     @PutMapping
-    public ResponseEntity<Cliente> atualizarCliente(@RequestBody @Valid Cliente cliente) {
-        Cliente clienteAtualizado = clienteService.atualizarCliente(cliente);
+    public ResponseEntity<Servico> atualizarServico(@RequestBody @Valid Servico servico) {
+        Servico servicoAtualizado = servicoService.atualizarServico(servico);
 
-        return ResponseEntity.ok(clienteAtualizado);
+        return ResponseEntity.ok(servicoAtualizado);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> excluirCliente(@RequestParam(name = "id") Long id) {
-        clienteService.excluirCliente(id);
+    public ResponseEntity<Void> excluirServico(@RequestParam(name = "id") Long id) {
+        servicoService.excluirServico(id);
 
         return ResponseEntity.noContent().build();
     }
