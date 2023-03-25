@@ -1,0 +1,624 @@
+{
+	"info": {
+		"_postman_id": "6c9ee2a1-bc97-484a-bc8c-173c767c5240",
+		"name": "Projeto Integrador 5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23178920"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Obter Todos os Clientes (Com Paginação e Ordenação)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/cliente?numeroPagina=0&quantidadePorPagina=10&ordenarPor=id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cliente"
+							],
+							"query": [
+								{
+									"key": "numeroPagina",
+									"value": "0",
+									"description": "Pode ser 0 ao infinito."
+								},
+								{
+									"key": "quantidadePorPagina",
+									"value": "10",
+									"description": "Pode ser 0 ao infinito."
+								},
+								{
+									"key": "ordenarPor",
+									"value": "id",
+									"description": "Pode ser: id, nome, cpf, endereco, telefoneFixo, telefoneCelular ou email."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obeter Cliente Por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/cliente?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cliente"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inserir Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Leonardo 123\",\r\n    \"cpf\": \"75106795168\",\r\n    \"endereco\": \"Longe de mais\",\r\n    \"telefoneFixo\": \"12345678901\",\r\n    \"telefoneCelular\": \"12345678901\",\r\n    \"email\": \"fodase@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/cliente",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Leonardo 1 ATUALIZADO\",\r\n    \"cpf\": \"75106795168\",\r\n    \"endereco\": \"Longe de mais\",\r\n    \"telefoneFixo\": \"12345678901\",\r\n    \"telefoneCelular\": \"12345678901\",\r\n    \"email\": \"fodase@gmail.com\",\r\n    \"id\": 1,\r\n    \"agendamentosRealizados\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/cliente",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/cliente?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cliente"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profissional",
+			"item": [
+				{
+					"name": "Obter Todos os Profissionais (Com Paginação e Ordenação)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/profissional?numeroPagina=0&quantidadePorPagina=10&ordenarPor=id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"profissional"
+							],
+							"query": [
+								{
+									"key": "numeroPagina",
+									"value": "0",
+									"description": "Pode ser 0 ao infinito."
+								},
+								{
+									"key": "quantidadePorPagina",
+									"value": "10",
+									"description": "Pode ser 0 ao infinito."
+								},
+								{
+									"key": "ordenarPor",
+									"value": "id",
+									"description": "Pode ser: id, nome, cpf, endereco, telefoneFixo, telefoneCelular ou email."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obeter Profissional Por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/profissional?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"profissional"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inserir Profissional",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Leonardo 1\",\r\n    \"cpf\": \"75106795168\",\r\n    \"endereco\": \"Longe de mais\",\r\n    \"telefoneFixo\": \"12345678901\",\r\n    \"telefoneCelular\": \"12345678901\",\r\n    \"email\": \"fodase@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/profissional",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"profissional"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Profissional",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Leonardo 1 ATUALIZADO\",\r\n    \"cpf\": \"75106795168\",\r\n    \"endereco\": \"Longe de mais\",\r\n    \"telefoneFixo\": \"12345678901\",\r\n    \"telefoneCelular\": \"12345678901\",\r\n    \"email\": \"fodase@gmail.com\",\r\n    \"id\": 1,\r\n    \"agendamentosRealizados\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/profissional",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"profissional"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Profissional",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/profissional?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"profissional"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Serviços",
+			"item": [
+				{
+					"name": "Obter Todos os Serviços (Com Paginação e Ordenação)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/servico?numeroPagina=0&quantidadePorPagina=10&ordenarPor=id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"servico"
+							],
+							"query": [
+								{
+									"key": "numeroPagina",
+									"value": "0"
+								},
+								{
+									"key": "quantidadePorPagina",
+									"value": "10"
+								},
+								{
+									"key": "ordenarPor",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obeter Serviço Por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/servico?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"servico"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inserir Serviço",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Corte de Cabelo\",\r\n    \"descricao\": \"É so um corte de cabelo mesmo\",\r\n    \"valor\": 2000.00,\r\n    \"profissionais\": [{\r\n        \"id\": 1\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/servico",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"servico"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Serviço",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Corte de Cabelo ATUALIZADO\",\r\n    \"descricao\": \"É so um corte de cabelo mesmo\",\r\n    \"valor\": 2000.0,\r\n    \"profissionais\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/servico?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"servico"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Serviço",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/servico?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"servico"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Agendamentos",
+			"item": [
+				{
+					"name": "Obter Todos os Agendamento (Com Paginação e Ordenação)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/agendamento?numeroPagina=0&quantidadePorPagina=10&ordenarPor=id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"agendamento"
+							],
+							"query": [
+								{
+									"key": "numeroPagina",
+									"value": "0"
+								},
+								{
+									"key": "quantidadePorPagina",
+									"value": "10"
+								},
+								{
+									"key": "ordenarPor",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obeter Agendamento Por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/agendamento?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"agendamento"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inserir Agendamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"agendamentoDataHora\": \"25/03/2023 18:50:12\",\r\n    \"duracao\": \"04:00:00\",\r\n    \"finalizacaoAgendamento\": \"25/03/2023 22:50:12\",\r\n    \"cliente\": {\"id\":1},\r\n    \"profissional\": {\"id\":1},\r\n    \"servico\": {\"id\":1}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/agendamento",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"agendamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Agendamento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Corte de Cabelo ATUALIZADO\",\r\n    \"descricao\": \"É so um corte de cabelo mesmo\",\r\n    \"valor\": 2000.0,\r\n    \"profissionais\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/agendamento ?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"agendamento "
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Agendamento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/agendamento?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"agendamento"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
