@@ -11,6 +11,4 @@ import com.senac.aesthetics.domain.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     
-    @Query("SELECT DISTINCT c FROM Cliente c")
-    Page<Cliente> obterTodosClientes(Pageable pagina);
 }
