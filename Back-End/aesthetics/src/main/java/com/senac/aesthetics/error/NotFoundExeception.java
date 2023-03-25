@@ -1,7 +1,7 @@
 package com.senac.aesthetics.error;
 
 public class NotFoundExeception extends RuntimeException {
-    
+
     // Atributos:
     private String message;
 
