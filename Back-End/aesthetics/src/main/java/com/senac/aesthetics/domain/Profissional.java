@@ -35,13 +35,11 @@ public class Profissional extends Pessoa {
 
     // Relacionamentos:
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "profissionais",
-        targetEntity = com.senac.aesthetics.domain.Servico.class)
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "profissionais", targetEntity = com.senac.aesthetics.domain.Servico.class)
     private Set<Servico> servicosDisponiveis;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "profissional", 
-        targetEntity = com.senac.aesthetics.domain.Agendamento.class)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "profissional", targetEntity = com.senac.aesthetics.domain.Agendamento.class)
     private Set<Agendamento> agendamentosRealizados;
 
 }

@@ -43,8 +43,7 @@ public class Servico {
 
     // Relacionamentos:
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @ManyToMany(fetch = FetchType.LAZY, 
-        targetEntity = com.senac.aesthetics.domain.Profissional.class)
+    @ManyToMany(fetch = FetchType.LAZY, targetEntity = com.senac.aesthetics.domain.Profissional.class)
     private Set<Profissional> profissionais;
 
 }

@@ -27,7 +27,7 @@ import lombok.Setter;
 @Table(name = "AGENDAMENTOS")
 public class Agendamento {
 
-    // Atributos: 
+    // Atributos:
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_AGENDAMENTO", nullable = false)
@@ -44,13 +44,11 @@ public class Agendamento {
 
     // Relacionamentos:
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, 
-        targetEntity = com.senac.aesthetics.domain.Cliente.class)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, targetEntity = com.senac.aesthetics.domain.Cliente.class)
     private Cliente cliente;
 
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
-    @ManyToOne(fetch = FetchType.LAZY, optional = false,
-        targetEntity = com.senac.aesthetics.domain.Profissional.class)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, targetEntity = com.senac.aesthetics.domain.Profissional.class)
     private Profissional profissional;
 
 }

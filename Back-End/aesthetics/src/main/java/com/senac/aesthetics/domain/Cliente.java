@@ -34,8 +34,7 @@ public class Cliente extends Pessoa {
 
     // Relacionamentos:
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente",
-        targetEntity = com.senac.aesthetics.domain.Agendamento.class)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", targetEntity = com.senac.aesthetics.domain.Agendamento.class)
     private Set<Agendamento> agendamentosRealizados;
 
 }
