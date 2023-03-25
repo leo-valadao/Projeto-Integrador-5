@@ -7,5 +7,5 @@ import com.senac.aesthetics.domain.Servico;
 
 @Repository
 public interface ServicoRepository extends JpaRepository<Servico, Long> {
-    
+
 }

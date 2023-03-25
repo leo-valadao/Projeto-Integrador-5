@@ -7,5 +7,5 @@ import com.senac.aesthetics.domain.Profissional;
 
 @Repository
 public interface ProfissionalRepository extends JpaRepository<Profissional, Long> {
-    
+
 }
