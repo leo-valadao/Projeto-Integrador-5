@@ -8,6 +8,9 @@ public class AestheticsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AestheticsApplication.class, args);
-	}
 
+		System.out.println("\n##############################");
+		System.out.println("#### APLICATIVO INICIADO! ####");
+		System.out.println("##############################\n");
+	}
 }
