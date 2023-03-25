@@ -2,7 +2,9 @@ package com.senac.aesthetics.domain;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,6 +24,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 
+// JSON:
+@JsonIdentityInfo(scope = Profissional.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+
 // JPA:
 @Entity(name = "Profissional")
 @Table(name = "PROFISSIONAIS")
@@ -35,10 +40,10 @@ public class Profissional extends Pessoa {
 
     // Relacionamentos:
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "profissionais", targetEntity = com.senac.aesthetics.domain.Servico.class)
+    @ManyToMany(fetch = FetchType.LAZY, targetEntity = com.senac.aesthetics.domain.Servico.class)
     private Set<Servico> servicosDisponiveis;
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @JsonProperty(access = JsonProperty.Access.AUTO)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "profissional", targetEntity = com.senac.aesthetics.domain.Agendamento.class)
     private Set<Agendamento> agendamentosRealizados;
 
