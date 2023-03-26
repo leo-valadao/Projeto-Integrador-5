@@ -535,7 +535,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"agendamentoDataHora\": \"25/03/2023 18:50:12\",\r\n    \"duracao\": \"04:00:00\",\r\n    \"finalizacaoAgendamento\": \"25/03/2023 22:50:12\",\r\n    \"cliente\": {\"id\":1},\r\n    \"profissional\": {\"id\":1},\r\n    \"servico\": {\"id\":1}\r\n}",
+							"raw": "{\r\n    \"agendamentoDataHora\": \"25/03/2024 18:50:12\",\r\n    \"duracao\": \"04:00:00\",\r\n    \"finalizacaoAgendamento\": \"25/03/2024 22:50:12\",\r\n    \"cliente\": {\"id\":1},\r\n    \"profissional\": {\"id\":1},\r\n    \"servico\": {\"id\":1}\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
