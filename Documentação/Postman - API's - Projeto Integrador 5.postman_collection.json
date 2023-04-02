@@ -79,7 +79,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Leonardo 123\",\r\n    \"cpf\": \"75106795168\",\r\n    \"endereco\": \"Longe de mais\",\r\n    \"telefoneFixo\": \"12345678901\",\r\n    \"telefoneCelular\": \"12345678901\",\r\n    \"email\": \"fodase@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Leonardo 123\",\r\n    \"cpf\": \"75106795168\",\r\n    \"endereco\": \"Longe de mais\",\r\n    \"telefoneFixo\": \"12345678901\",\r\n    \"telefoneCelular\": \"12345678901\",\r\n    \"email\": \"tantofaz@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -108,7 +108,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Leonardo 1 ATUALIZADO\",\r\n    \"cpf\": \"75106795168\",\r\n    \"endereco\": \"Longe de mais\",\r\n    \"telefoneFixo\": \"12345678901\",\r\n    \"telefoneCelular\": \"12345678901\",\r\n    \"email\": \"fodase@gmail.com\",\r\n    \"id\": 1,\r\n    \"agendamentosRealizados\": []\r\n}",
+							"raw": "{\r\n    \"nome\": \"Leonardo 1 ATUALIZADO\",\r\n    \"cpf\": \"75106795168\",\r\n    \"endereco\": \"Longe de mais\",\r\n    \"telefoneFixo\": \"12345678901\",\r\n    \"telefoneCelular\": \"12345678901\",\r\n    \"email\": \"tantofaz@gmail.com\",\r\n    \"id\": 1,\r\n    \"agendamentosRealizados\": []\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -231,7 +231,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Leonardo 1\",\r\n    \"cpf\": \"75106795168\",\r\n    \"endereco\": \"Longe de mais\",\r\n    \"telefoneFixo\": \"12345678901\",\r\n    \"telefoneCelular\": \"12345678901\",\r\n    \"email\": \"fodase@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Leonardo 1\",\r\n    \"cpf\": \"75106795168\",\r\n    \"endereco\": \"Longe de mais\",\r\n    \"telefoneFixo\": \"12345678901\",\r\n    \"telefoneCelular\": \"12345678901\",\r\n    \"email\": \"tantofaz@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -260,7 +260,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Leonardo 1 ATUALIZADO\",\r\n    \"cpf\": \"75106795168\",\r\n    \"endereco\": \"Longe de mais\",\r\n    \"telefoneFixo\": \"12345678901\",\r\n    \"telefoneCelular\": \"12345678901\",\r\n    \"email\": \"fodase@gmail.com\",\r\n    \"id\": 1,\r\n    \"agendamentosRealizados\": []\r\n}",
+							"raw": "{\r\n    \"nome\": \"Leonardo 1 ATUALIZADO\",\r\n    \"cpf\": \"75106795168\",\r\n    \"endereco\": \"Longe de mais\",\r\n    \"telefoneFixo\": \"12345678901\",\r\n    \"telefoneCelular\": \"12345678901\",\r\n    \"email\": \"tantofaz@gmail.com\",\r\n    \"id\": 1,\r\n    \"agendamentosRealizados\": []\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -380,7 +380,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Corte de Cabelo\",\r\n    \"descricao\": \"É so um corte de cabelo mesmo\",\r\n    \"valor\": 2000.00,\r\n    \"profissionais\": [{\r\n        \"id\": 1\r\n    }]\r\n}",
+							"raw": "{\r\n    \"nome\": \"Corte de Cabelo\",\r\n    \"descricao\": \"É so um corte de cabelo mesmo\",\r\n    \"valor\": 2000.00,\r\n    \"profissionais\": [{\r\n        \"id\": 1\r\n    },{\r\n        \"id\": 2\r\n    }]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -535,7 +535,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"agendamentoDataHora\": \"25/03/2024 18:50:12\",\r\n    \"duracao\": \"04:00:00\",\r\n    \"finalizacaoAgendamento\": \"25/03/2024 22:50:12\",\r\n    \"cliente\": {\"id\":1},\r\n    \"profissional\": {\"id\":1},\r\n    \"servico\": {\"id\":1}\r\n}",
+							"raw": "{\r\n    \"agendamentoDataHora\": \"25/03/2024 18:50:12\",\r\n    \"duracao\": \"04:00:00\",\r\n    \"finalizacaoAgendamento\": \"25/03/2024 22:50:12\",\r\n    \"cliente\": {\"id\":2},\r\n    \"profissional\": {\"id\":2},\r\n    \"servico\": {\"id\":2}\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -564,7 +564,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Corte de Cabelo ATUALIZADO\",\r\n    \"descricao\": \"É so um corte de cabelo mesmo\",\r\n    \"valor\": 2000.0,\r\n    \"profissionais\": []\r\n}",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"agendamentoDataHora\": \"25/03/3024 18:50:12\",\r\n    \"duracao\": \"04:00:00\",\r\n    \"finalizacaoAgendamento\": \"25/03/3024 22:50:12\",\r\n    \"cliente\": {\r\n        \"id\": 3,\r\n        \"nome\": null,\r\n        \"cpf\": null,\r\n        \"endereco\": null,\r\n        \"telefoneFixo\": null,\r\n        \"telefoneCelular\": null,\r\n        \"email\": null\r\n    },\r\n    \"profissional\": {\r\n        \"id\": 3,\r\n        \"nome\": null,\r\n        \"cpf\": null,\r\n        \"endereco\": null,\r\n        \"telefoneFixo\": null,\r\n        \"telefoneCelular\": null,\r\n        \"email\": null,\r\n        \"servicosDisponiveis\": null\r\n    },\r\n    \"servico\": {\r\n        \"id\": 3,\r\n        \"nome\": null,\r\n        \"descricao\": null,\r\n        \"valor\": null,\r\n        \"profissionais\": null\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -572,7 +572,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/v1/agendamento ?id=1",
+							"raw": "localhost:8080/api/v1/agendamento?id=1",
 							"host": [
 								"localhost"
 							],
@@ -580,7 +580,7 @@
 							"path": [
 								"api",
 								"v1",
-								"agendamento "
+								"agendamento"
 							],
 							"query": [
 								{

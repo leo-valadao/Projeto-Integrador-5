@@ -1,6 +1,5 @@
 package com.senac.aesthetics.model;
 
-import java.util.List;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -39,7 +38,7 @@ public class Cliente extends Pessoa {
     private Long id;
 
     @Column(name = "ALERGIAS", length = 100)
-    private List<String> alergias;
+    private String alergias;
 
     // Relacionamentos:
     @JsonIgnore
