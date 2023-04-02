@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { PainelLateralComponent } from './painel-lateral/painel-lateral.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { RodapeComponent } from './rodape/rodape.component';
+import { TabelaClientesComponent } from './clientes/tabela-clientes/tabela-clientes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PainelLateralComponent,
     CabecalhoComponent,
-    RodapeComponent
+    RodapeComponent,
+    TabelaClientesComponent
   ],
   imports: [
     BrowserModule,
