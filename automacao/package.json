@@ -1,0 +1,14 @@
+{
+  "name": "automacao",
+  "version": "1.0.0",
+  "description": "Projeto de testes automatizados ADS ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nelson Mendes",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^12.8.1"
+  }
+}
