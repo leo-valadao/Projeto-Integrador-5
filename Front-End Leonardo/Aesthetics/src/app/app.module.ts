@@ -3,10 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PainelLateralComponent } from './painel-lateral/painel-lateral.component';
+import { CabecalhoComponent } from './cabecalho/cabecalho.component';
+import { RodapeComponent } from './rodape/rodape.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PainelLateralComponent,
+    CabecalhoComponent,
+    RodapeComponent
   ],
   imports: [
     BrowserModule,
