@@ -1,4 +1,4 @@
-package com.senac.aesthetics.domain;
+package com.senac.aesthetics.model;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -14,6 +14,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.FutureOrPresent;
@@ -56,18 +57,21 @@ public class Agendamento {
     private LocalDateTime finalizacaoAgendamento;
 
     // Relacionamentos:
-    @JsonProperty(access = JsonProperty.Access.AUTO)
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, targetEntity = com.senac.aesthetics.domain.Cliente.class)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, targetEntity = com.senac.aesthetics.model.Cliente.class)
+    @JoinColumn(name = "ID_CLIENTE_FK", referencedColumnName = "ID_CLIENTE", nullable = false)
     @NotNull(message = "O Agendamento Não Pode Ser Feito Sem Cliente!")
     private Cliente cliente;
 
-    @JsonProperty(access = JsonProperty.Access.AUTO)
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, targetEntity = com.senac.aesthetics.domain.Profissional.class)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, targetEntity = com.senac.aesthetics.model.Profissional.class)
+    @JoinColumn(name = "ID_PROFISSIONAL_FK", referencedColumnName = "ID_PROFISSIONAL", nullable = false)
     @NotNull(message = "O Agendamento Não Pode Ser Feito Sem Profissional!")
     private Profissional profissional;
 
-    @JsonProperty(access = JsonProperty.Access.AUTO)
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, targetEntity = com.senac.aesthetics.domain.Servico.class)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, targetEntity = com.senac.aesthetics.model.Servico.class)
+    @JoinColumn(name = "ID_SERVICO_FK", referencedColumnName = "ID_SERVICO", nullable = false)
     @NotNull(message = "O Agendamento Não Pode Ser Feito Sem Serviço!")
     private Servico servico;
 

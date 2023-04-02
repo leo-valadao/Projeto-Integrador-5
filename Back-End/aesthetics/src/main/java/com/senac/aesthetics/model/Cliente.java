@@ -1,9 +1,10 @@
-package com.senac.aesthetics.domain;
+package com.senac.aesthetics.model;
 
+import java.util.List;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Column;
@@ -37,9 +38,12 @@ public class Cliente extends Pessoa {
     @Column(name = "ID_CLIENTE", nullable = false)
     private Long id;
 
+    @Column(name = "ALERGIAS", length = 100)
+    private List<String> alergias;
+
     // Relacionamentos:
-    @JsonProperty(access = JsonProperty.Access.AUTO)
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", targetEntity = com.senac.aesthetics.domain.Agendamento.class)
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", targetEntity = com.senac.aesthetics.model.Agendamento.class)
     private Set<Agendamento> agendamentosRealizados;
 
 }

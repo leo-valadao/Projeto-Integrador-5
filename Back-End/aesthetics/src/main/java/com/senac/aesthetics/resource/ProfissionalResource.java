@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.senac.aesthetics.domain.Profissional;
+import com.senac.aesthetics.model.Profissional;
 import com.senac.aesthetics.service.ProfissionalService;
 
 import jakarta.validation.Valid;

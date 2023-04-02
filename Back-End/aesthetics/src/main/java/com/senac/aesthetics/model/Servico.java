@@ -1,8 +1,9 @@
-package com.senac.aesthetics.domain;
+package com.senac.aesthetics.model;
 
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -12,6 +13,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -47,7 +50,7 @@ public class Servico {
     @Size(max = 50, message = "O Tamanho Máximo da Nome do Serviço é de 50 Caracteres!")
     private String nome;
 
-    @Column(name = "DESCRICAO", length = 150, nullable = true)
+    @Column(name = "DESCRICAO", length = 150)
     @Size(max = 150, message = "O Tamanho Máximo da Descrição do Serviço é de 150 Caracteres!")
     private String descricao;
 
@@ -57,12 +60,13 @@ public class Servico {
     private Double valor;
 
     // Relacionamentos:
-    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "servicosDisponiveis", targetEntity = com.senac.aesthetics.domain.Profissional.class)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToMany(fetch = FetchType.LAZY, targetEntity = com.senac.aesthetics.model.Profissional.class)
+    @JoinTable(name = "PROFISSIONAIS_DO_SERVICO", joinColumns = @JoinColumn(name = "ID_PROFISSIONAL_FK"), inverseJoinColumns = @JoinColumn(name = "ID_SERVICO_FK"))
     private Set<Profissional> profissionais;
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "servico", targetEntity = com.senac.aesthetics.domain.Agendamento.class)
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "servico", targetEntity = com.senac.aesthetics.model.Agendamento.class)
     private Set<Agendamento> agendamentos;
 
 }

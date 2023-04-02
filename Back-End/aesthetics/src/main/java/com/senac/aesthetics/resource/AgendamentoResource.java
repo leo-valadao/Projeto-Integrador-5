@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.senac.aesthetics.domain.Agendamento;
+import com.senac.aesthetics.model.Agendamento;
 import com.senac.aesthetics.service.AgendamentoService;
 
 import jakarta.validation.Valid;

@@ -1,8 +1,9 @@
-package com.senac.aesthetics.domain;
+package com.senac.aesthetics.model;
 
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -38,13 +39,16 @@ public class Profissional extends Pessoa {
     @Column(name = "ID_PROFISSIONAL", nullable = false)
     private Long id;
 
+    @Column(name = "INSTAGRAM", length = 30)
+    private String instagram;
+
     // Relacionamentos:
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    @ManyToMany(fetch = FetchType.LAZY, targetEntity = com.senac.aesthetics.domain.Servico.class)
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "profissionais", targetEntity = com.senac.aesthetics.model.Servico.class)
     private Set<Servico> servicosDisponiveis;
 
-    @JsonProperty(access = JsonProperty.Access.AUTO)
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "profissional", targetEntity = com.senac.aesthetics.domain.Agendamento.class)
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "profissional", targetEntity = com.senac.aesthetics.model.Agendamento.class)
     private Set<Agendamento> agendamentosRealizados;
 
 }

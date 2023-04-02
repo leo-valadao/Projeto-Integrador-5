@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.senac.aesthetics.domain.Servico;
+import com.senac.aesthetics.model.Servico;
 import com.senac.aesthetics.service.ServicoService;
 
 import jakarta.validation.Valid;

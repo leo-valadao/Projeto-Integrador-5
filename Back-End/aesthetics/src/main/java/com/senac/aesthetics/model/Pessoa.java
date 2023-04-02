@@ -1,4 +1,4 @@
-package com.senac.aesthetics.domain;
+package com.senac.aesthetics.model;
 
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -26,15 +26,15 @@ public abstract class Pessoa {
     @Size(max = 50, message = "O Tamanho Máximo da Nome da Pessoa é de 50 Caracteres!")
     private String nome;
 
-    @Column(name = "CPF", length = 11, nullable = true)
+    @Column(name = "CPF", length = 11)
     @CPF(message = "O CPF da Pessoas Está Inválido!")
     private String cpf;
 
-    @Column(name = "ENDERECO", length = 150, nullable = true)
+    @Column(name = "ENDERECO", length = 150)
     @Size(max = 150, message = "O Tamanho Máximo do Endereço da Pessoa é de 150 Caracteres!")
     private String endereco;
 
-    @Column(name = "TELEFONE_FIXO", length = 11, nullable = true)
+    @Column(name = "TELEFONE_FIXO", length = 11)
     @Size(max = 11, message = "O Tamanho Máximo do Telefone Fixo da Pessoa é de 11 Caracteres!")
     // TODO: @TelefoneValidacao
     private String telefoneFixo;
@@ -45,7 +45,7 @@ public abstract class Pessoa {
     // TODO: @TelefoneValidacao
     private String telefoneCelular;
 
-    @Column(name = "EMAIL", length = 50, nullable = true)
+    @Column(name = "EMAIL", length = 50)
     @Email(message = "O E-Mail da Pessoa Está Inválido!")
     private String email;
 

@@ -7,8 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.senac.aesthetics.domain.Servico;
 import com.senac.aesthetics.error.NotFoundExeception;
+import com.senac.aesthetics.model.Servico;
 import com.senac.aesthetics.repository.ServicoRepository;
 
 @Service
