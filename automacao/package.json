@@ -9,6 +9,7 @@
   "author": "Nelson Mendes",
   "license": "MIT",
   "devDependencies": {
+    "@bahmutov/cy-api": "^2.2.4",
     "cypress": "^12.8.1"
   }
 }
