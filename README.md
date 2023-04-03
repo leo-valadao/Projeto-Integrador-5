@@ -5,7 +5,7 @@
 # Membros:  
 ### - Back-End: Leonardo Valadão
 ### - Quality Assurance: Nelson Gomes
-### - Front-End: Marina de Souza
+### - Front-End: Marina de Souza e Leonardo Valadão
 ### - Documentação: Douglas Ferreira
 
 
