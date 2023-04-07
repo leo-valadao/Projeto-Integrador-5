@@ -5,6 +5,7 @@ export class Cliente extends Pessoa {
 
     public id!: number;
     public alergias!: string;
+
     public agendamentosRealizados!: Agendamento[];
 
     constructor() { super() }

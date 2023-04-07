@@ -8,6 +8,7 @@ export class Agendamento {
     public agendamentoDataHora!: Date;
     public duracao!: Date;
     public finalizacaoAgendamento!: Date;
+
     public cliente!: Cliente;
     public profissional!: Profissional;
     public servico!: Servico;

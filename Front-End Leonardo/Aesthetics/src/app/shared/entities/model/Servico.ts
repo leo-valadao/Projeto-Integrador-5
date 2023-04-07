@@ -7,6 +7,7 @@ export class Servico {
     public nome!: string;
     public descricao!: string;
     public valor!: string;
+    
     public profissionais!: Profissional[];
     public agendamentos!: Agendamento[];
 

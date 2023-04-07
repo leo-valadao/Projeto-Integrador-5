@@ -6,6 +6,7 @@ export class Profissional extends Pessoa {
 
     public id!: number;
     public instagram!: string;
+    
     public servicosDisponiveis!: Servico[];
     public agendamentosRealizados!: Agendamento[];
 
