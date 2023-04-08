@@ -1,6 +1,6 @@
 package com.senac.aesthetics.model;
 
-import java.util.Set;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -43,6 +43,6 @@ public class Cliente extends Pessoa {
     // Relacionamentos:
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", targetEntity = com.senac.aesthetics.model.Agendamento.class)
-    private Set<Agendamento> agendamentosRealizados;
+    private List<Agendamento> agendamentosRealizados;
 
 }

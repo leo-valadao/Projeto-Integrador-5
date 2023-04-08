@@ -1,6 +1,6 @@
 package com.senac.aesthetics.model;
 
-import java.util.Set;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -63,10 +63,10 @@ public class Servico {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToMany(fetch = FetchType.LAZY, targetEntity = com.senac.aesthetics.model.Profissional.class)
     @JoinTable(name = "PROFISSIONAIS_DO_SERVICO", joinColumns = @JoinColumn(name = "ID_PROFISSIONAL_FK"), inverseJoinColumns = @JoinColumn(name = "ID_SERVICO_FK"))
-    private Set<Profissional> profissionais;
+    private List<Profissional> profissionais;
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "servico", targetEntity = com.senac.aesthetics.model.Agendamento.class)
-    private Set<Agendamento> agendamentos;
+    private List<Agendamento> agendamentos;
 
 }
