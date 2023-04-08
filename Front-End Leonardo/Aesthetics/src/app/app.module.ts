@@ -1,6 +1,13 @@
+// Angular
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
+// Prime NG
+import { TableModule } from 'primeng/table';
+import { CheckboxModule } from 'primeng/checkbox';
+
+// Aesthetics
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PainelLateralComponent } from './painel-lateral/painel-lateral.component';
@@ -14,13 +21,16 @@ import { TabelaClientesComponent } from './clientes/tabela-clientes/tabela-clien
     PainelLateralComponent,
     CabecalhoComponent,
     RodapeComponent,
-    TabelaClientesComponent
+    TabelaClientesComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    TableModule,
+    CheckboxModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

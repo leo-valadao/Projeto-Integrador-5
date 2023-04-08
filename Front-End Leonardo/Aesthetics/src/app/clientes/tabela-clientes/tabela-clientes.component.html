@@ -1,16 +1,37 @@
-<p-table [columns]="cols" [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+<div class="p-4">
+  <!-- P-Table é o componente de tabela do Prime NG (https://primeng.org/table) -->
+  <p-table [columns]="colunas" [value]="clientes"  [(selection)]="clientesSelecionados"> 
+    <!--  
+      [Columns] é a variável que entra na tabela do Prime NG que define quais colunas vão aparecer, nela eu coloquei a variável "colunas" que está
+    no arquivo .ts desse component tabela-clientes (seria o tabela-clientes.component.ts), a variável "colunas" tem 2 atributos: header, que será o 
+    responsável por nomear a colunoa na tabela do Prime NG e o atributo field, que será usado na hora de definir qual atributo do cliente será exibido
+    em cada coluna.
+      [Value] é a variável que entra na tabela do Prime NG que define quais valores serão exibidos na tabela (deve ser um Array de um objeto, se for
+     só o objeto, apenas 1 objeto será exibido na tabela), nesse caso usei o Array de ClienteDTO para ser exibido.
+      Existem VÁRIOS outros parâmetros e atributos a serem inseridos na tabela, mas não será necessário usar todos e também não vou explicar tudo.-->
     <ng-template pTemplate="header" let-columns>
-        <tr>
-            <th *ngFor="let col of columns">
-                {{ col.header }}
-            </th>
-        </tr>
+      <tr>
+        <th>
+          <p-tableHeaderCheckbox/>
+        </th>
+
+        <th *ngFor="let col of columns">
+          {{ col.header }}
+        </th>
+      </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr>
-            <td *ngFor="let col of columns">
-                {{ rowData[col.field] }}
-            </td>
-        </tr>
+    <ng-template pTemplate="body" let-cliente let-columns="columns">
+      <tr>
+        <td>
+          <p-tableCheckbox [value]="cliente"></p-tableCheckbox>
+        </td>
+        
+        <td *ngFor="let col of columns">
+          {{ cliente[col.field] }}
+        </td>
+      </tr>
     </ng-template>
-</p-table>
+  </p-table>
+</div>
+
+<button (click)="teste()">CLIQUE AQUI E OLHE O CONSOLE LOG</button>
