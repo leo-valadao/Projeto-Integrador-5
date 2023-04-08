@@ -48,7 +48,7 @@ public class AestheticsApplication implements ApplicationRunner {
 		System.out.println("##############################\n");
 	}
 
-	// TODO: REMOVER TODO ESTE MÉTODO RUN E TIRAR A IMPLEMENTAÇÃO DA INTERFACE ApplicationRunner DA CLASSE public class AestheticsApplication EM PRODUÇÃO
+	// TODO: REMOVER TODO ESTE MÉTODO RUN E TIRAR A IMPLEMENTAÇÃO DA INTERFACE ApplicationRunner DA CLASSE public class AestheticsApplication AO MIGRAR PARA PRODUÇÃO
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
@@ -108,5 +108,7 @@ public class AestheticsApplication implements ApplicationRunner {
 		a1.setServico(s1);
 
 		as.inserirAgendamento(a1);
+
+		System.out.println("\n VALORES INICIAS DE TESTE INSERIDOS!\n");
 	}
 }
