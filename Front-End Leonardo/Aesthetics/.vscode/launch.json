@@ -1,14 +1,15 @@
 {
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  // Use o IntelliSense para saber mais sobre os atributos possíveis.
+  // Focalizar para exibir as descrições dos atributos existentes.
+  // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
-
-
     {
-      "name": "Edge",
-      "type": "msedge",
+      "type": "chrome",
       "request": "launch",
-      "url": "http://localhost:4200/"
-    },
+      "name": "Iniciar o Chrome em relação a localhost",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}"
+    }
   ]
 }
