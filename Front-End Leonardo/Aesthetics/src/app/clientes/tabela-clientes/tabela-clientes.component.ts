@@ -28,7 +28,6 @@ export class TabelaClientesComponent implements OnInit {
   constructor(private clienteService: ClientesService) {}
 
   ngOnInit(): void {
-    this.obterTodosClientes(0, 10, 'id');
   }
 
   obterTodosClientes(
@@ -41,6 +40,7 @@ export class TabelaClientesComponent implements OnInit {
       .subscribe({
         next: (resposta) => {
           this.clientes = resposta.content;
+          this.opcoesPaginasExibidas = resposta.content.length;
         },
         error: (erro) => {
           console.log('ERRO OBTER CLIENTES ' + erro);
@@ -50,10 +50,13 @@ export class TabelaClientesComponent implements OnInit {
   }
 
   mudarPagina(evento: LazyLoadEvent) {
-    this.obterTodosClientes(0, 10, 'id');
+    if (evento.first != undefined) {
+      this.obterTodosClientes(Math.floor(evento.first/this.quantidadeTotalClientes), this.opcoesPaginasExibidas, 'id');
+    }
+    
   }
 
-  teste() {
+  teste(event: any) {
     console.log(this.colunas);
     console.log(this.clientes);
     console.log(this.clientesSelecionados);

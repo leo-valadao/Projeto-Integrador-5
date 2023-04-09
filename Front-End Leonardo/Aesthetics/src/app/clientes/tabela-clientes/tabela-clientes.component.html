@@ -8,9 +8,13 @@
     [reorderableColumns]="true" 
     [totalRecords]="quantidadeTotalClientes" 
     [rows]="opcoesPaginasExibidas"
-    [totalRecords]="quantidadeTotalClientes"
     [lazy]="true"
-    (onLazyLoad)="mudarPagina($event)"> 
+    [rows]="quantidadeTotalClientes"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Mostrando de {first} ao {last} de {totalRecords} clientes"
+    [rowsPerPageOptions]="[1, 3, 5, 8, 10, 25, 50, 100]"
+    (onLazyLoad)="mudarPagina($event)"
+    > 
     <!-- [] → Variável entra, () → Variável sai, [()] → Variável entra e sai do componente
       [Columns] é a variável que entra na tabela do Prime NG que define quais colunas vão aparecer, nela eu coloquei a variável "colunas" que está
     no arquivo .ts desse component tabela-clientes (seria o tabela-clientes.component.ts), a variável "colunas" tem 2 atributos: header, que será o 
@@ -54,4 +58,4 @@
 
 </div>
 
-<button (click)="teste()">CLIQUE AQUI E OLHE O CONSOLE LOG</button>
+<button (click)="teste(null)">CLIQUE AQUI E OLHE O CONSOLE LOG</button>
