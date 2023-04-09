@@ -56,7 +56,7 @@ public class AestheticsApplication implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
-		for (int i = 1; i <= 30; i++) {
+		for (int i = 1; i <= 150; i++) {
 			Cliente c = new Cliente();
 
 			c.setNome("Cliente " + i);
@@ -70,7 +70,7 @@ public class AestheticsApplication implements ApplicationRunner {
 			cs.inserirCliente(c);
 		}
 
-		for (int i = 1; i <= 30; i++) {
+		for (int i = 1; i <= 150; i++) {
 			Profissional p = new Profissional();
 			p.setNome("Profissional " + i);
 			p.setCpf("22615308033");
