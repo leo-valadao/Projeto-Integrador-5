@@ -11,7 +11,7 @@ import { ClientesService } from 'src/app/shared/services/clientes.service';
 
 @Component({
   selector: 'app-tabela-clientes',
-  templateUrl: './tabela-clientes.component.html',
+  templateUrl: './tabela-clientes.component.html'
 })
 export class TabelaClientesComponent implements OnInit {
   // Variáveis da Tabela Prime-NG:
@@ -19,15 +19,15 @@ export class TabelaClientesComponent implements OnInit {
   clientesSelecionados!: Cliente[];
   quantidadeTotalClientes: number = 10;
   quantidadeClientesExibidos: number = 10;
-  colunas: { header: string; field: string }[] = [
-    { header: 'ID', field: 'id' },
-    { header: 'Nome', field: 'nome' },
-    { header: 'CPF', field: 'cpf' },
-    { header: 'Telefone Celular', field: 'telefoneCelular' },
-    { header: 'Telefone Fixo', field: 'telefoneFixo' },
-    { header: 'E-Mail', field: 'email' },
-    { header: 'Endereço', field: 'endereco' },
-    { header: 'Alergias', field: 'alergias' },
+  colunas: { header: string; field: string, align: string }[] = [
+    { header: 'ID', field: 'id', align: 'text-center' },
+    { header: 'Nome', field: 'nome', align: 'text-center' },
+    { header: 'CPF', field: 'cpf', align: 'text-center' },
+    { header: 'Telefone Celular', field: 'telefoneCelular', align: 'text-center' },
+    { header: 'Telefone Fixo', field: 'telefoneFixo', align: 'text-center' },
+    { header: 'E-Mail', field: 'email', align: 'text-center' },
+    { header: 'Endereço', field: 'endereco', align: 'text-center' },
+    { header: 'Alergias', field: 'alergias', align: 'text-start' },
   ];
 
   constructor(private clienteService: ClientesService) {}

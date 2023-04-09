@@ -1,5 +1,8 @@
 <div class="p-4">
+
   <p-table 
+    id="dtClientes"
+    styleClass="p-datatable-gridlines"
     [columns]="colunas" 
     [value]="clientes" 
     [(selection)]="clientesSelecionados" 
@@ -11,28 +14,37 @@
     [showCurrentPageReport]="true"
     currentPageReportTemplate="Mostrando do {first}º ao {last}º de {totalRecords} clientes"
     [rowsPerPageOptions]="[10, 30, 50, 100]"
-    (onLazyLoad)="mudarPagina($event)"
-    > 
+    (onLazyLoad)="mudarPagina($event)"> 
+    
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th>
+        <th class="align-middle text-center">
           <p-tableHeaderCheckbox/>
         </th>
 
-        <th *ngFor="let col of columns">
+        <th *ngFor="let col of columns" class="align-middle text-center">
           {{ col.header }}
+        </th>
+
+        <th class="align-middle text-center align-items-center">
+          Ações
         </th>
       </tr>
     </ng-template>
 
     <ng-template pTemplate="body" let-cliente let-columns="columns">
       <tr>
-        <td>
+        <td class="align-middle text-center">
           <p-tableCheckbox [value]="cliente"></p-tableCheckbox>
         </td>
         
-        <td *ngFor="let col of columns">
+        <td *ngFor="let col of columns" class="align-middle {{col.align}}">
           {{ cliente[col.field] }}
+        </td>
+
+        <td class="align-middle text-center">
+            <i class="pi pi-pencil" style="font-size: 2rem;"></i>
+            <i class="pi pi-trash ms-3" style="font-size: 2rem; color: rgb(255, 0, 0) !important"></i>
         </td>
       </tr>
     </ng-template>
