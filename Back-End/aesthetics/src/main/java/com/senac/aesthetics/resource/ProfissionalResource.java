@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.senac.aesthetics.model.Profissional;
+import com.senac.aesthetics.entities.model.Profissional;
 import com.senac.aesthetics.service.ProfissionalService;
 
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("api/v1/profissional")
+@RequestMapping(value = "api/v1/profissional", produces = "application/json")
 public class ProfissionalResource {
 
     // Objetos:

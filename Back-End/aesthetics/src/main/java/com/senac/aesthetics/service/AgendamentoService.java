@@ -7,8 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.senac.aesthetics.entities.model.Agendamento;
 import com.senac.aesthetics.error.NotFoundExeception;
-import com.senac.aesthetics.model.Agendamento;
 import com.senac.aesthetics.repository.AgendamentoRepository;
 
 @Service

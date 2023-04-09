@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.senac.aesthetics.model.Agendamento;
+import com.senac.aesthetics.entities.model.Agendamento;
 import com.senac.aesthetics.service.AgendamentoService;
 
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("api/v1/agendamento")
+@RequestMapping(value = "api/v1/agendamento", produces = "application/json")
 public class AgendamentoResource {
 
     // Obejtos:
