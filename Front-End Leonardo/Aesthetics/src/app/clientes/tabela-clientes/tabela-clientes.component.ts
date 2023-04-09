@@ -9,11 +9,10 @@ import { ClientesService } from 'src/app/shared/services/clientes.service';
 })
 export class TabelaClientesComponent implements OnInit {
   // Variáveis da Tabela Prime-NG:
-  checked: boolean = false;
   clientes!: ClienteDTO[];
   clientesSelecionados!: ClienteDTO[];
   quantidadeTotalClientes: number = 10;
-  opcoesPaginasExibidas: number = 5;
+  quantidadeClientesExibidos: number = 10;
   colunas: { header: string; field: string }[] = [
     { header: 'ID', field: 'id' },
     { header: 'Nome', field: 'nome' },
@@ -27,8 +26,7 @@ export class TabelaClientesComponent implements OnInit {
 
   constructor(private clienteService: ClientesService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   obterTodosClientes(
     numeroPagina: number,
@@ -40,7 +38,7 @@ export class TabelaClientesComponent implements OnInit {
       .subscribe({
         next: (resposta) => {
           this.clientes = resposta.content;
-          this.opcoesPaginasExibidas = resposta.content.length;
+          this.quantidadeTotalClientes = resposta.totalElements;
         },
         error: (erro) => {
           console.log('ERRO OBTER CLIENTES ' + erro);
@@ -50,10 +48,13 @@ export class TabelaClientesComponent implements OnInit {
   }
 
   mudarPagina(evento: LazyLoadEvent) {
-    if (evento.first != undefined) {
-      this.obterTodosClientes(Math.floor(evento.first/this.quantidadeTotalClientes), this.opcoesPaginasExibidas, 'id');
+    if (evento.first != undefined && evento.rows != undefined) {
+      this.obterTodosClientes(
+        Math.floor(evento.first / evento.rows),
+        evento.rows,
+        'id'
+      );
     }
-    
   }
 
   teste(event: any) {
