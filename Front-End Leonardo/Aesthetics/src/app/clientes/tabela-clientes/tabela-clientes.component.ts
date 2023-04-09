@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
-import { ClienteDTO } from 'src/app/shared/entities/data-transfer-object/ClienteDTO';
+import { Cliente } from 'src/app/shared/entities/model/Cliente';
 import { ClientesService } from 'src/app/shared/services/clientes.service';
 
 @Component({
@@ -9,8 +9,8 @@ import { ClientesService } from 'src/app/shared/services/clientes.service';
 })
 export class TabelaClientesComponent implements OnInit {
   // Variáveis da Tabela Prime-NG:
-  clientes!: ClienteDTO[];
-  clientesSelecionados!: ClienteDTO[];
+  clientes!: Cliente[];
+  clientesSelecionados!: Cliente[];
   quantidadeTotalClientes: number = 10;
   quantidadeClientesExibidos: number = 10;
   colunas: { header: string; field: string }[] = [
