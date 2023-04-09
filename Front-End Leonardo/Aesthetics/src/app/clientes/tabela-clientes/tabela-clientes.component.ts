@@ -1,5 +1,11 @@
+// Angular
 import { Component, OnInit } from '@angular/core';
+import { RouterModule, ActivatedRoute, Router } from '@angular/router';
+
+// Prime NG
 import { LazyLoadEvent } from 'primeng/api';
+
+// Aesthetics
 import { Cliente } from 'src/app/shared/entities/model/Cliente';
 import { ClientesService } from 'src/app/shared/services/clientes.service';
 
