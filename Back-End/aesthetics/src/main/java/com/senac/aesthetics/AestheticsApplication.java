@@ -1,7 +1,6 @@
 package com.senac.aesthetics;
 
 import java.util.Arrays;
-import java.util.List;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -43,9 +42,17 @@ public class AestheticsApplication implements ApplicationRunner {
 		System.out.println("##############################\n");
 	}
 
-	// TODO: REMOVER ESTE MÉTODO RUN E TIRAR A IMPLEMENTAÇÃO DA INTERFACE
-	// ApplicationRunner DA CLASSE public class AestheticsApplication AO MIGRAR PARA
-	// PRODUÇÃO
+	/*
+	 * TODO: REMOVER ESTE MÉTODO:
+	 * @Override
+	 * public void run(ApplicationArguments args) throws Exception
+	 * TODO: REMOVER A INTERFACE:
+	 * ApplicationRunner
+	 * DA CLASSE:
+	 * @SpringBootApplication
+	 * public class AestheticsApplication implements ApplicationRunner
+	 * AO MIGRAR PARA PRODUÇÃO!
+	 */
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
@@ -83,7 +90,7 @@ public class AestheticsApplication implements ApplicationRunner {
 			s.setValor(Double.valueOf(i));
 
 			Profissional p1 = ps.obterProfissionalPorId(Long.valueOf(i));
-			Profissional p2 = ps.obterProfissionalPorId(Long.valueOf(i+1));
+			Profissional p2 = ps.obterProfissionalPorId(Long.valueOf(i + 1));
 
 			s.setProfissionais(Arrays.asList(p1, p2));
 
@@ -98,7 +105,6 @@ public class AestheticsApplication implements ApplicationRunner {
 			a.setDuracao(duracao);
 			a.setFinalizacaoAgendamento(dataAgendamento.plusHours(4));
 
-			
 			a.setCliente(cs.obterClientePorId(Long.valueOf(i)));
 			a.setProfissional(ps.obterProfissionalPorId(Long.valueOf(i)));
 			a.setServico(ss.obterServicoPorId(Long.valueOf(i)));
