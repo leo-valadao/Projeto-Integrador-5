@@ -10,7 +10,7 @@
     [lazy]="true"
     [showCurrentPageReport]="true"
     currentPageReportTemplate="Mostrando do {first}º ao {last}º de {totalRecords} clientes"
-    [rowsPerPageOptions]="[1, 3, 5, 8, 10, 30, 50, 100]"
+    [rowsPerPageOptions]="[10, 30, 50, 100]"
     (onLazyLoad)="mudarPagina($event)"
     > 
     <ng-template pTemplate="header" let-columns>
