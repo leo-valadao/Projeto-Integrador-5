@@ -1,13 +1,8 @@
 package com.senac.aesthetics;
 
 import java.util.Arrays;
-import java.util.Date;
-import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAmount;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -15,7 +10,6 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.senac.aesthetics.entities.model.Agendamento;
 import com.senac.aesthetics.entities.model.Cliente;
 import com.senac.aesthetics.entities.model.Profissional;
@@ -48,7 +42,7 @@ public class AestheticsApplication implements ApplicationRunner {
 		System.out.println("##############################\n");
 	}
 
-	// TODO: REMOVER TODO ESTE MÉTODO RUN E TIRAR A IMPLEMENTAÇÃO DA INTERFACE ApplicationRunner DA CLASSE public class AestheticsApplication AO MIGRAR PARA PRODUÇÃO
+	// TODO: REMOVER ESTE MÉTODO RUN E TIRAR A IMPLEMENTAÇÃO DA INTERFACE ApplicationRunner DA CLASSE public class AestheticsApplication AO MIGRAR PARA PRODUÇÃO
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
