@@ -18,8 +18,6 @@ export class ClientesService {
   ): Observable<Page<Cliente>> {
     let url = `${ActiveAPIs.cliente}?numeroPagina=${numeroPagina}&quantidadePorPagina=${quantidadePorPagina}`;
 
-    console.log('URL AQUI:' + url);
-
     if (ordenarPor) {
       url += `&ordenarPor=${ordenarPor}`;
     }
