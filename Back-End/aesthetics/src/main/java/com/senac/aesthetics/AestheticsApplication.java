@@ -16,10 +16,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
-import com.senac.aesthetics.model.Agendamento;
-import com.senac.aesthetics.model.Cliente;
-import com.senac.aesthetics.model.Profissional;
-import com.senac.aesthetics.model.Servico;
+import com.senac.aesthetics.entities.model.Agendamento;
+import com.senac.aesthetics.entities.model.Cliente;
+import com.senac.aesthetics.entities.model.Profissional;
+import com.senac.aesthetics.entities.model.Servico;
 import com.senac.aesthetics.service.AgendamentoService;
 import com.senac.aesthetics.service.ClienteService;
 import com.senac.aesthetics.service.ProfissionalService;
