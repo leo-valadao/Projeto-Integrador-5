@@ -3,6 +3,7 @@ package com.senac.aesthetics.resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ import com.senac.aesthetics.service.ClienteService;
 import jakarta.validation.Valid;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value = "api/v1/cliente", produces = "application/json")
 public class ClienteResource {
 
