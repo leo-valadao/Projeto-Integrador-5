@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 // Prime NG
 import { TableModule } from 'primeng/table';
@@ -33,6 +35,8 @@ import { TabelaAgendamentosComponent } from './agendamentos/tabela-agendamentos/
     TableModule,
     CheckboxModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
