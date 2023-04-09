@@ -8,7 +8,6 @@ export class Profissional extends Pessoa {
     public instagram!: string;
     
     public servicosDisponiveis!: Servico[];
-    public agendamentosRealizados!: Agendamento[];
 
     constructor() { super() }
 }

@@ -9,7 +9,6 @@ export class Servico {
     public valor!: string;
     
     public profissionais!: Profissional[];
-    public agendamentos!: Agendamento[];
-
+    
     constructor() { }
 }
