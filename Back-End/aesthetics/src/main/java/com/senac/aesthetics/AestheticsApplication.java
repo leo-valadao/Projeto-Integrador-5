@@ -1,6 +1,7 @@
 package com.senac.aesthetics;
 
 import java.util.Arrays;
+import java.util.List;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -42,66 +43,68 @@ public class AestheticsApplication implements ApplicationRunner {
 		System.out.println("##############################\n");
 	}
 
-	// TODO: REMOVER ESTE MÉTODO RUN E TIRAR A IMPLEMENTAÇÃO DA INTERFACE ApplicationRunner DA CLASSE public class AestheticsApplication AO MIGRAR PARA PRODUÇÃO
+	// TODO: REMOVER ESTE MÉTODO RUN E TIRAR A IMPLEMENTAÇÃO DA INTERFACE
+	// ApplicationRunner DA CLASSE public class AestheticsApplication AO MIGRAR PARA
+	// PRODUÇÃO
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
-		Cliente c1 = new Cliente();
-		c1.setNome("Leonardo");
-		c1.setCpf("75106795168");
-		c1.setEndereco("RUA C");
-		c1.setTelefoneCelular("12345678901");
-		c1.setTelefoneFixo("12345678901");
-		c1.setEmail("leo@teste.com");
-		c1.setAlergias("A tudo");
+		for (int i = 1; i <= 30; i++) {
+			Cliente c = new Cliente();
 
-		cs.inserirCliente(c1);
-		cs.inserirCliente(c1);
-		cs.inserirCliente(c1);
+			c.setNome("Cliente " + i);
+			c.setCpf("22615308033");
+			c.setEndereco("Endereço " + i);
+			c.setTelefoneCelular("12345678901");
+			c.setTelefoneFixo("12345678901");
+			c.setEmail("Email" + i + "@Teste.com");
+			c.setAlergias("Remédio X, Shampoo A, Sambonete " + i);
 
-		Profissional p1 = new Profissional();
-		p1.setNome("Leonardo");
-		p1.setCpf("75106795168");
-		p1.setEndereco("RUA C");
-		p1.setTelefoneCelular("12345678901");
-		p1.setTelefoneFixo("12345678901");
-		p1.setEmail("leo@teste.com");
-		p1.setInstagram("leo.valadao");
+			cs.inserirCliente(c);
+		}
 
-		Profissional p2 = new Profissional();
-		p2.setNome("Leonardo 2");
-		p2.setCpf("75106795168");
-		p2.setEndereco("RUA C");
-		p2.setTelefoneCelular("12345678901");
-		p2.setTelefoneFixo("12345678901");
-		p2.setEmail("leo@teste.com");
-		p2.setInstagram("leo.valadao");
+		for (int i = 1; i <= 30; i++) {
+			Profissional p = new Profissional();
+			p.setNome("Profissional " + i);
+			p.setCpf("22615308033");
+			p.setEndereco("Endereco " + i);
+			p.setTelefoneCelular("12345678901");
+			p.setTelefoneFixo("12345678901");
+			p.setEmail("Email" + i + "@Teste.com");
+			p.setInstagram("Instragram " + i);
 
+			ps.inserirProfissional(p);
+		}
 
-		ps.inserirProfissional(p1);
-		ps.inserirProfissional(p2);
-		ps.inserirProfissional(p1);
-		ps.inserirProfissional(p2);
+		for (int i = 5; i <= 25; i++) {
+			Servico s = new Servico();
+			s.setNome("Serviço " + i);
+			s.setDescricao("Descrição " + i);
+			s.setValor(Double.valueOf(i));
 
-		Servico s1 = new Servico();
-		s1.setNome("Cote de cabelo");
-		s1.setDescricao("e so um corte msm");
-		s1.setValor(2000.0);
-		s1.setProfissionais(Arrays.asList(p1, p1));
+			Profissional p1 = ps.obterProfissionalPorId(Long.valueOf(i));
+			Profissional p2 = ps.obterProfissionalPorId(Long.valueOf(i+1));
 
-		ss.inserirServico(s1);
+			s.setProfissionais(Arrays.asList(p1, p2));
 
-		Agendamento a1 = new Agendamento();
-		LocalDateTime dataAgendamento = LocalDateTime.of(2023, 5, 10, 14, 0);
-		a1.setAgendamentoDataHora(dataAgendamento);
-		LocalTime duracao = LocalTime.of(4, 0, 0);
-		a1.setDuracao(duracao);
-		a1.setFinalizacaoAgendamento(dataAgendamento.plusHours(4));
-		a1.setCliente(c1);
-		a1.setProfissional(p1);
-		a1.setServico(s1);
+			ss.inserirServico(s);
+		}
 
-		as.inserirAgendamento(a1);
+		for (int i = 1; i <= 15; i++) {
+			Agendamento a = new Agendamento();
+			LocalDateTime dataAgendamento = LocalDateTime.of(2024, 5, i, i, 0);
+			a.setAgendamentoDataHora(dataAgendamento);
+			LocalTime duracao = LocalTime.of(i, 0, 0);
+			a.setDuracao(duracao);
+			a.setFinalizacaoAgendamento(dataAgendamento.plusHours(4));
+
+			
+			a.setCliente(cs.obterClientePorId(Long.valueOf(i)));
+			a.setProfissional(ps.obterProfissionalPorId(Long.valueOf(i)));
+			a.setServico(ss.obterServicoPorId(Long.valueOf(i)));
+
+			as.inserirAgendamento(a);
+		}
 
 		System.out.println("\n VALORES INICIAS DE TESTE INSERIDOS!\n");
 	}
