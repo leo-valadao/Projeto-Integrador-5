@@ -11,7 +11,6 @@ import { TableModule } from 'primeng/table';
 import { CheckboxModule } from 'primeng/checkbox';
 
 // Aesthetics
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PainelLateralComponent } from './painel-lateral/painel-lateral.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
@@ -30,7 +29,6 @@ import { TabelaAgendamentosComponent } from './agendamentos/tabela-agendamentos/
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     TableModule,
     CheckboxModule,
