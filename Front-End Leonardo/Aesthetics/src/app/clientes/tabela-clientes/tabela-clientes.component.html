@@ -1,5 +1,7 @@
 <div class="p-4">
 
+  <app-formulario-clientes/>
+
   <p-table 
     id="dtClientes"
     styleClass="p-datatable-gridlines"
@@ -16,9 +18,16 @@
     [rowsPerPageOptions]="[10, 30, 50, 100]"
     (onLazyLoad)="mudarPagina($event)"> 
     
+    <ng-template pTemplate="caption">
+      <div class="d-flex align-items-center justify-content-between">
+          Clientes
+          <button pButton pRipple icon="pi pi-plus" label="Adicionar" class="p-button-primary" (click)="mostrarFormularioCliente()"></button>
+      </div>
+    </ng-template>
+
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th class="align-middle text-center">
+        <th class="flex align-items-center justify-content-between">
           <p-tableHeaderCheckbox/>
         </th>
 

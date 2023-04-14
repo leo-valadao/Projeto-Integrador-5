@@ -1,6 +1,5 @@
 // Angular
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 
 // Prime NG
 import { LazyLoadEvent } from 'primeng/api';
@@ -29,6 +28,7 @@ export class TabelaClientesComponent implements OnInit {
     { header: 'Endereço', field: 'endereco', align: 'text-center' },
     { header: 'Alergias', field: 'alergias', align: 'text-start' },
   ];
+  exibirFormularioCliente: boolean = false;
 
   constructor(private clienteService: ClientesService) {}
 
@@ -67,5 +67,9 @@ export class TabelaClientesComponent implements OnInit {
     console.log(this.colunas);
     console.log(this.clientes);
     console.log(this.clientesSelecionados);
+  }
+
+  mostrarFormularioCliente() {
+    this.exibirFormularioCliente = true;
   }
 }

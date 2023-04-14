@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 // Prime NG
 import { TableModule } from 'primeng/table';
 import { CheckboxModule } from 'primeng/checkbox';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 
 // Aesthetics
 import { AppComponent } from './app.component';
@@ -21,6 +23,7 @@ import { TabelaAgendamentosComponent } from './agendamentos/tabela-agendamentos/
 import { Rotas } from './app.routes';
 import { TabelaProfissionaisComponent } from './profissionais/tabela-profissionais/tabela-profissionais.component';
 import { TabelaServicosComponent } from './servicos/tabela-servicos/tabela-servicos.component';
+import { FormularioClientesComponent } from './clientes/formulario-clientes/formulario-clientes.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,7 @@ import { TabelaServicosComponent } from './servicos/tabela-servicos/tabela-servi
     TabelaAgendamentosComponent,
     TabelaProfissionaisComponent,
     TabelaServicosComponent,
+    FormularioClientesComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,8 @@ import { TabelaServicosComponent } from './servicos/tabela-servicos/tabela-servi
     HttpClientModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
+    ButtonModule,
+    DialogModule,
     RouterModule.forRoot(Rotas, { onSameUrlNavigation: 'reload' }),
   ],
   providers: [],
