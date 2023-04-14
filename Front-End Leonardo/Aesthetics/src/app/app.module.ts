@@ -24,6 +24,10 @@ import { Rotas } from './app.routes';
 import { TabelaProfissionaisComponent } from './profissionais/tabela-profissionais/tabela-profissionais.component';
 import { TabelaServicosComponent } from './servicos/tabela-servicos/tabela-servicos.component';
 import { FormularioClientesComponent } from './clientes/formulario-clientes/formulario-clientes.component';
+import { ClientesComponent } from './clientes/clientes.component';
+import { AgendamentosComponent } from './agendamentos/agendamentos.component';
+import { ServicosComponent } from './servicos/servicos.component';
+import { ProfissionaisComponent } from './profissionais/profissionais.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { FormularioClientesComponent } from './clientes/formulario-clientes/form
     TabelaProfissionaisComponent,
     TabelaServicosComponent,
     FormularioClientesComponent,
+    ClientesComponent,
+    AgendamentosComponent,
+    ServicosComponent,
+    ProfissionaisComponent,
   ],
   imports: [
     BrowserModule,
