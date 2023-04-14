@@ -4,4 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-formulario-clientes',
   templateUrl: './formulario-clientes.component.html',
 })
-export class FormularioClientesComponent {}
+export class FormularioClientesComponent {
+
+  exibirFormulario: boolean = false;
+
+  
+}
