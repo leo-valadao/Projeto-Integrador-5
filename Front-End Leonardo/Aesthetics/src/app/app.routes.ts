@@ -1,24 +1,24 @@
 import { Routes } from '@angular/router';
-import { TabelaClientesComponent } from './clientes/tabela-clientes/tabela-clientes.component';
-import { TabelaAgendamentosComponent } from './agendamentos/tabela-agendamentos/tabela-agendamentos.component';
-import { TabelaServicosComponent } from './servicos/tabela-servicos/tabela-servicos.component';
-import { TabelaProfissionaisComponent } from './profissionais/tabela-profissionais/tabela-profissionais.component';
+import { ClientesComponent } from './clientes/clientes.component';
+import { ServicosComponent } from './servicos/servicos.component';
+import { ProfissionaisComponent } from './profissionais/profissionais.component';
+import { AgendamentosComponent } from './agendamentos/agendamentos.component';
 
 export const Rotas: Routes = [
   {
     path: 'clientes',
-    component: TabelaClientesComponent,
+    component: ClientesComponent,
   },
   {
     path: 'agendamentos',
-    component: TabelaAgendamentosComponent
+    component: AgendamentosComponent,
   },
   {
     path: 'profissionais',
-    component: TabelaProfissionaisComponent
+    component: ProfissionaisComponent,
   },
   {
     path: 'servicos',
-    component: TabelaServicosComponent
-  }
+    component: ServicosComponent,
+  },
 ];

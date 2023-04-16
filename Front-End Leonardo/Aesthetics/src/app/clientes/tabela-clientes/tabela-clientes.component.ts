@@ -1,6 +1,5 @@
 // Angular
-import { Component, OnInit } from '@angular/core';
-import { RouterModule, ActivatedRoute, Router } from '@angular/router';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 // Prime NG
 import { LazyLoadEvent } from 'primeng/api';
@@ -14,7 +13,7 @@ import { ClientesService } from 'src/app/shared/services/clientes.service';
   templateUrl: './tabela-clientes.component.html'
 })
 export class TabelaClientesComponent implements OnInit {
-  // Variáveis da Tabela Prime-NG:
+
   clientes!: Cliente[];
   clientesSelecionados!: Cliente[];
   quantidadeTotalClientes: number = 10;
@@ -29,6 +28,7 @@ export class TabelaClientesComponent implements OnInit {
     { header: 'Endereço', field: 'endereco', align: 'text-center' },
     { header: 'Alergias', field: 'alergias', align: 'text-start' },
   ];
+  @Output() exibirFormularioCliente: EventEmitter<boolean> = new EventEmitter<boolean>;
 
   constructor(private clienteService: ClientesService) {}
 
@@ -67,5 +67,9 @@ export class TabelaClientesComponent implements OnInit {
     console.log(this.colunas);
     console.log(this.clientes);
     console.log(this.clientesSelecionados);
+  }
+
+  mostrarFormularioCliente() {
+    this.exibirFormularioCliente.emit(true);
   }
 }
