@@ -42,7 +42,7 @@ public class AestheticsApplication implements ApplicationRunner {
 		System.out.println("##############################\n");
 	}
 
-	/*
+	/* ALO MARINA! TESTE!
 	 * TODO: REMOVER ESTE MÉTODO:
 	 * @Override
 	 * public void run(ApplicationArguments args) throws Exception
