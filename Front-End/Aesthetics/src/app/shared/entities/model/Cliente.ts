@@ -1,5 +1,4 @@
 import { Pessoa } from "./Pessoa";
-import { Agendamento } from "./Agendamento";
 
 export class Cliente extends Pessoa {
 

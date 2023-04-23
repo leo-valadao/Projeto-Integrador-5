@@ -1,5 +1,4 @@
 import { Profissional } from "./Profissional";
-import { Agendamento } from "./Agendamento";
 
 export class Servico {
 
@@ -7,8 +6,8 @@ export class Servico {
     public nome!: string;
     public descricao!: string;
     public valor!: string;
-    
+
     public profissionais!: Profissional[];
-    
+
     constructor() { }
 }
