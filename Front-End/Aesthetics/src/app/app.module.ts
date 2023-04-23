@@ -1,7 +1,7 @@
 // Angular
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +13,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
 
 // Aesthetics
 import { AppComponent } from './app.component';
@@ -63,9 +64,11 @@ import { FormularioAgendamentosComponent } from './agendamentos/formulario-agend
     InputTextModule,
     ButtonModule,
     DialogModule,
+    InputMaskModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(Rotas, { onSameUrlNavigation: 'reload' }),
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
