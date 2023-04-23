@@ -10,7 +10,7 @@
     [paginator]="true"
     [reorderableColumns]="true"
     [totalRecords]="quantidadeTotalClientes"
-    [rows]="quantidadeClientesExibidos"
+    [rows]="quantidadeClientesExibidosPorPagina"
     [lazy]="true"
     [showCurrentPageReport]="true"
     currentPageReportTemplate="Mostrando do {first}º ao {last}º de {totalRecords} clientes"
@@ -26,7 +26,7 @@
           icon="pi pi-plus"
           label="Adicionar"
           class="p-button-primary"
-          (click)="mostrarFormularioCliente()"
+          (click)="mostrarFormularioCliente(null)"
         ></button>
       </div>
     </ng-template>
@@ -55,16 +55,19 @@
           {{ cliente[col.field] }}
         </td>
 
-        <td class="align-middle text-center">
-          <i class="pi pi-pencil" style="font-size: 2rem"></i>
+        <td class="align-middle text-center gap-3">
+          <i
+            class="pi pi-pencil"
+            style="font-size: 2rem"
+            (click)="mostrarFormularioCliente(cliente)"
+          ></i>
           <i
             class="pi pi-trash ms-3"
             style="font-size: 2rem; color: rgb(255, 0, 0) !important"
+            (click)="excluirCliente(cliente.id)"
           ></i>
         </td>
       </tr>
     </ng-template>
   </p-table>
 </div>
-
-<button (click)="teste(null)">CLIQUE AQUI E OLHE O CONSOLE LOG</button>

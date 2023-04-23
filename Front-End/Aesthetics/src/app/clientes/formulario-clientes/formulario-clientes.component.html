@@ -16,6 +16,8 @@
           pInputText
           [(ngModel)]="cliente.nome"
           formControlName="nome"
+          maxlength="50"
+          minlength="1"
           type="text"
           id="nome"
           name="nome"
@@ -55,7 +57,7 @@
         <p-inputMask
           [(ngModel)]="cliente.telefoneCelular"
           formControlName="telefoneCelular"
-          mask="(99)99999999?9"
+          mask="(99)99999-999?9"
           styleClass="w-100"
           type="tel"
           id="telefoneCelular"
@@ -69,6 +71,7 @@
           pInputText
           [(ngModel)]="cliente.email"
           formControlName="email"
+          maxlength="50"
           type="email"
           id="email"
           name="email"
@@ -83,6 +86,7 @@
           pInputText
           [(ngModel)]="cliente.endereco"
           formControlName="endereco"
+          maxlength="150"
           type="text"
           id="endereco"
           name="endereco"
@@ -97,6 +101,7 @@
           pInputText
           [(ngModel)]="cliente.alergias"
           formControlName="alergias"
+          maxlength="100"
           type="text"
           id="alergias"
           name="alergias"

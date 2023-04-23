@@ -1,8 +1,9 @@
 // Angular
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 // Prime NG
 import { LazyLoadEvent } from 'primeng/api';
+import { Table } from 'primeng/table';
 
 // Aesthetics
 import { Cliente } from 'src/app/shared/entities/model/Cliente';
@@ -13,10 +14,12 @@ import { ClientesService } from 'src/app/shared/services/clientes.service';
   templateUrl: './tabela-clientes.component.html',
 })
 export class TabelaClientesComponent implements OnInit {
+
+  // Variáveis
   clientes!: Cliente[];
   clientesSelecionados!: Cliente[];
   quantidadeTotalClientes: number = 10;
-  quantidadeClientesExibidos: number = 10;
+  quantidadeClientesExibidosPorPagina: number = 10;
   colunas: { header: string; field: string; align: string }[] = [
     { header: 'ID', field: 'id', align: 'text-center' },
     { header: 'Nome', field: 'nome', align: 'text-center' },
@@ -31,8 +34,13 @@ export class TabelaClientesComponent implements OnInit {
     { header: 'Endereço', field: 'endereco', align: 'text-center' },
     { header: 'Alergias', field: 'alergias', align: 'text-start' },
   ];
-  @Output() exibirFormularioCliente: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
+
+  // Emissores
+  @Output() exibirFormularioCliente: EventEmitter<Cliente> =
+    new EventEmitter<Cliente>();
+
+  // Componentes
+  @ViewChild(Table) private tabelaClientes!: Table;
 
   constructor(private clienteService: ClientesService) { }
 
@@ -50,9 +58,7 @@ export class TabelaClientesComponent implements OnInit {
           this.clientes = resposta.content;
           this.quantidadeTotalClientes = resposta.totalElements;
         },
-        error: (erro) => {
-          console.log('ERRO OBTER CLIENTES ' + erro);
-        },
+        error: (erro) => { },
         complete: () => { },
       });
   }
@@ -67,13 +73,24 @@ export class TabelaClientesComponent implements OnInit {
     }
   }
 
-  teste(event: any) {
-    console.log(this.colunas);
-    console.log(this.clientes);
-    console.log(this.clientesSelecionados);
+  mostrarFormularioCliente(cliente: Cliente | null) {
+    if (cliente) {
+      this.exibirFormularioCliente.emit(JSON.parse(JSON.stringify(cliente)));
+    } else {
+      this.exibirFormularioCliente.emit(new Cliente());
+    }
   }
 
-  mostrarFormularioCliente() {
-    this.exibirFormularioCliente.emit(true);
+  excluirCliente(idCliente: number) {
+    this.clienteService.excluirCliente(idCliente).subscribe({
+      next: (resposta) => { },
+      error: (erro) => { },
+      complete: () => { },
+    });
+    this.atualizarTabela();
+  }
+
+  atualizarTabela() {
+    this.obterTodosClientes(Math.floor(this.tabelaClientes.first / this.tabelaClientes.rows), this.tabelaClientes._rows);
   }
 }
