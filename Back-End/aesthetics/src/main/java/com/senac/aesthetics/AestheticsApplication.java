@@ -57,17 +57,17 @@ public class AestheticsApplication implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
-		boolean InserirDadosDeTeste = false;
+		boolean InserirDadosDeTeste = true;
 
 		if (InserirDadosDeTeste) {
 			for (int i = 1; i <= 150; i++) {
 				Cliente c = new Cliente();
 
 				c.setNome("Cliente " + i);
-				c.setCpf("22615308033");
+				c.setCpf("226.153.080-33");
 				c.setEndereco("Endereço " + i);
-				c.setTelefoneCelular("12345678901");
-				c.setTelefoneFixo("12345678901");
+				c.setTelefoneCelular("(12)34567-8901");
+				c.setTelefoneFixo("(12)34567-8901");
 				c.setEmail("Email" + i + "@Teste.com");
 				c.setAlergias("Remédio X, Shampoo A, Sambonete " + i);
 
@@ -77,10 +77,10 @@ public class AestheticsApplication implements ApplicationRunner {
 			for (int i = 1; i <= 150; i++) {
 				Profissional p = new Profissional();
 				p.setNome("Profissional " + i);
-				p.setCpf("22615308033");
+				p.setCpf("226.153.080-33");
 				p.setEndereco("Endereco " + i);
-				p.setTelefoneCelular("12345678901");
-				p.setTelefoneFixo("12345678901");
+				p.setTelefoneCelular("(12)34567-8901");
+				p.setTelefoneFixo("(12)34567-8901");
 				p.setEmail("Email" + i + "@Teste.com");
 				p.setInstagram("Instragram " + i);
 
