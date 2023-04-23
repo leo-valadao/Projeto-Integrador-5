@@ -57,7 +57,9 @@ public class AestheticsApplication implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
-		if (true) {
+		boolean InserirDadosDeTeste = false;
+
+		if (InserirDadosDeTeste) {
 			for (int i = 1; i <= 150; i++) {
 				Cliente c = new Cliente();
 
