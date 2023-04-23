@@ -60,7 +60,6 @@ import { FormularioAgendamentosComponent } from './agendamentos/formulario-agend
     HttpClientModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    IMaskModule,
     InputTextModule,
     ButtonModule,
     DialogModule,

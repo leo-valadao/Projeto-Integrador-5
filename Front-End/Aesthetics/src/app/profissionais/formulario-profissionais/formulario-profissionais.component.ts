@@ -3,8 +3,7 @@ import { Profissional } from 'src/app/shared/entities/model/Profissional';
 
 @Component({
   selector: 'app-formulario-profissionais',
-  templateUrl: './formulario-profissionais.component.html',
-  styleUrls: ['./formulario-profissionais.component.less']
+  templateUrl: './formulario-profissionais.component.html'
 })
 export class FormularioProfissionaisComponent implements OnInit{
 

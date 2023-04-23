@@ -3,8 +3,7 @@ import { Agendamento } from 'src/app/shared/entities/model/Agendamento';
 
 @Component({
   selector: 'app-formulario-agendamentos',
-  templateUrl: './formulario-agendamentos.component.html',
-  styleUrls: ['./formulario-agendamentos.component.less']
+  templateUrl: './formulario-agendamentos.component.html'
 })
 export class FormularioAgendamentosComponent implements OnInit {
 
