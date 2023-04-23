@@ -2,6 +2,8 @@ package com.senac.aesthetics.entities.model;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import com.senac.aesthetics.entities.anotations.Telefone;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.Email;
@@ -36,13 +38,13 @@ public abstract class Pessoa {
 
     @Column(name = "TELEFONE_FIXO", length = 14)
     @Size(max = 14, message = "O Tamanho Máximo do Telefone Fixo da Pessoa é de 11 Caracteres!")
-    // TODO: @TelefoneValidacao
+    @Telefone(message = "O Telefone Fixo da Pessoa Está Inválido!")
     private String telefoneFixo;
 
     @Column(name = "TELEFONE_CELULAR", length = 14, nullable = false)
     @NotBlank(message = "O Telefone Celular da Pessoa Não Pode Estar Vazio!")
     @Size(max = 14, message = "O Tamanho Máximo do Telefone Celular da Pessoa é de 11 Caracteres!")
-    // TODO: @TelefoneValidacao
+    @Telefone(message = "O Telefone Fixo da Pessoa Está Inválido!")
     private String telefoneCelular;
 
     @Column(name = "EMAIL", length = 50)
