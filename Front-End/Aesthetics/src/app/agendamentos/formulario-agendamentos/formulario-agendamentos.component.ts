@@ -8,12 +8,8 @@ import { Agendamento } from 'src/app/shared/entities/model/Agendamento';
 export class FormularioAgendamentosComponent implements OnInit {
 
   agendamento: Agendamento = new Agendamento();
+
   ngOnInit(): void {
 
   }
-  exibirConsole() {
-    console.log(this.agendamento)
-  }
-
-
 }
