@@ -13,11 +13,6 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
-import { IMaskModule } from 'angular-imask';
-
-
-
-
 
 // Aesthetics
 import { AppComponent } from './app.component';
