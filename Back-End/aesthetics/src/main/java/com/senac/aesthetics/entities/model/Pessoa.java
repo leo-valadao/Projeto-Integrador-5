@@ -26,7 +26,7 @@ public abstract class Pessoa {
     @Size(max = 50, message = "O Tamanho Máximo da Nome da Pessoa é de 50 Caracteres!")
     private String nome;
 
-    @Column(name = "CPF", length = 11)
+    @Column(name = "CPF", length = 14)
     @CPF(message = "O CPF da Pessoas Está Inválido!")
     private String cpf;
 
@@ -34,14 +34,14 @@ public abstract class Pessoa {
     @Size(max = 150, message = "O Tamanho Máximo do Endereço da Pessoa é de 150 Caracteres!")
     private String endereco;
 
-    @Column(name = "TELEFONE_FIXO", length = 11)
-    @Size(max = 11, message = "O Tamanho Máximo do Telefone Fixo da Pessoa é de 11 Caracteres!")
+    @Column(name = "TELEFONE_FIXO", length = 14)
+    @Size(max = 14, message = "O Tamanho Máximo do Telefone Fixo da Pessoa é de 11 Caracteres!")
     // TODO: @TelefoneValidacao
     private String telefoneFixo;
 
-    @Column(name = "TELEFONE_CELULAR", length = 11, nullable = false)
+    @Column(name = "TELEFONE_CELULAR", length = 14, nullable = false)
     @NotBlank(message = "O Telefone Celular da Pessoa Não Pode Estar Vazio!")
-    @Size(max = 11, message = "O Tamanho Máximo do Telefone Celular da Pessoa é de 11 Caracteres!")
+    @Size(max = 14, message = "O Tamanho Máximo do Telefone Celular da Pessoa é de 11 Caracteres!")
     // TODO: @TelefoneValidacao
     private String telefoneCelular;
 
