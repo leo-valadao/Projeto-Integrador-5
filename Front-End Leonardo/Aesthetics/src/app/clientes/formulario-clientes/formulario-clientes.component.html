@@ -1,6 +1,45 @@
-<p-dialog header="Header" [(visible)]="exibirFormulario" [style]="{width: '50vw'}">
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+<p-dialog header="Header" [(visible)]="exibirFormulario" [style]="{width: '70vw'}">
+  <div>
+    <form>
+      <div>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" [(ngModel)]="obj.nome" pInputText>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" [(ngModel)]="obj.cpf" pInputText>
+
+      </div>
+
+      <div>
+        <label for="telefoneFixo">Telefone Fixo:</label>
+        <input type="tel" id="telefoneFixo" name="telefoneFixo" [(ngModel)]="obj.telefoneFixo" pInputText>
+
+        <label for="telefoneCelular">Telefone Celular:</label>
+        <input type="tel" id="telefoneCelular" name="telefoneCelular" [(ngModel)]="obj.telefoneCelular" pInputText>
+      </div>
+      <div>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" [(ngModel)]="obj.endereco" pInputText>
+
+      </div>
+
+      <div>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="obj.email" pInputText>
+
+      </div>
+
+      <div>
+        <label for="alergias">Alergias:</label>
+        <input type="text" id="alergias" name="alergias" [(ngModel)]="obj.alergias" pInputText>
+
+      </div>
+
+
+
+      <button pButton type="button" label="Salvar"></button>
+
+    </form>
+  </div>
 </p-dialog>

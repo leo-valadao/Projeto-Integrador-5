@@ -12,6 +12,12 @@ import { TableModule } from 'primeng/table';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { IMaskModule } from 'angular-imask';
+
+
+
+
 
 // Aesthetics
 import { AppComponent } from './app.component';
@@ -28,6 +34,9 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { AgendamentosComponent } from './agendamentos/agendamentos.component';
 import { ServicosComponent } from './servicos/servicos.component';
 import { ProfissionaisComponent } from './profissionais/profissionais.component';
+import { FormularioProfissionaisComponent } from './profissionais/formulario-profissionais/formulario-profissionais.component';
+import { FormularioServicosComponent } from './servicos/formulario-servicos/formulario-servicos.component';
+import { FormularioAgendamentosComponent } from './agendamentos/formulario-agendamentos/formulario-agendamentos.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +53,9 @@ import { ProfissionaisComponent } from './profissionais/profissionais.component'
     AgendamentosComponent,
     ServicosComponent,
     ProfissionaisComponent,
+    FormularioProfissionaisComponent,
+    FormularioServicosComponent,
+    FormularioAgendamentosComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +65,8 @@ import { ProfissionaisComponent } from './profissionais/profissionais.component'
     HttpClientModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
+    IMaskModule,
+    InputTextModule,
     ButtonModule,
     DialogModule,
     RouterModule.forRoot(Rotas, { onSameUrlNavigation: 'reload' }),
