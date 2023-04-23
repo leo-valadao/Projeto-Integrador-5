@@ -9,9 +9,10 @@ import { ActiveAPIs } from 'src/environments/env-desenvolvimento';
   providedIn: 'root',
 })
 export class ClientesService {
-  constructor(private http: HttpClient) {}
 
-  obterTodosClientes(
+  constructor(private http: HttpClient) { }
+
+  obterClientesPorPagina(
     numeroPagina: number,
     quantidadePorPagina: number,
     ordenarPor?: string
@@ -23,5 +24,23 @@ export class ClientesService {
     }
 
     return this.http.get<Page<Cliente>>(url);
+  }
+
+  salvarCliente(cliente: Cliente): Observable<Cliente> {
+    let url = `${ActiveAPIs.cliente}`;
+
+    return this.http.post<Cliente>(url, cliente);
+  }
+
+  atualizarCliente(cliente: Cliente): Observable<Cliente> {
+    let url = `${ActiveAPIs.cliente}`;
+
+    return this.http.put<Cliente>(url, cliente);
+  }
+
+  excluirCliente(idCliente: number): Observable<void> {
+    let url = `${ActiveAPIs.cliente}?id=${idCliente}`;
+
+    return this.http.delete<void>(url);
   }
 }
