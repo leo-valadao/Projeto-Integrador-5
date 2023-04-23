@@ -20,7 +20,7 @@ public class ClienteService {
 
     // Métodos:
     public Page<Cliente> obterTodosClientes(Integer numeroPagina, Integer quantidadePorPagina, String ordenarPor) {
-        Pageable pagina = PageRequest.of(numeroPagina, quantidadePorPagina, Sort.by(ordenarPor));
+        Pageable pagina = PageRequest.of(numeroPagina, quantidadePorPagina, Sort.by(Sort.Direction.DESC, ordenarPor));
 
         return clienteRepository.findAll(pagina);
     }

@@ -21,7 +21,7 @@ public class AgendamentoService {
     // Métodos:
     public Page<Agendamento> obterTodosAgendamentos(Integer numeroPagina, Integer quantidadePorPagina,
             String ordenarPor) {
-        Pageable pagina = PageRequest.of(numeroPagina, quantidadePorPagina, Sort.by(ordenarPor));
+        Pageable pagina = PageRequest.of(numeroPagina, quantidadePorPagina, Sort.by(Sort.Direction.DESC, ordenarPor));
 
         return agendamentoRepository.findAll(pagina);
     }
