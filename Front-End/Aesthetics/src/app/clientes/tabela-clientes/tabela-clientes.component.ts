@@ -10,29 +10,33 @@ import { ClientesService } from 'src/app/shared/services/clientes.service';
 
 @Component({
   selector: 'app-tabela-clientes',
-  templateUrl: './tabela-clientes.component.html'
+  templateUrl: './tabela-clientes.component.html',
 })
 export class TabelaClientesComponent implements OnInit {
-
   clientes!: Cliente[];
   clientesSelecionados!: Cliente[];
   quantidadeTotalClientes: number = 10;
   quantidadeClientesExibidos: number = 10;
-  colunas: { header: string; field: string, align: string }[] = [
+  colunas: { header: string; field: string; align: string }[] = [
     { header: 'ID', field: 'id', align: 'text-center' },
     { header: 'Nome', field: 'nome', align: 'text-center' },
     { header: 'CPF', field: 'cpf', align: 'text-center' },
-    { header: 'Telefone Celular', field: 'telefoneCelular', align: 'text-center' },
+    {
+      header: 'Telefone Celular',
+      field: 'telefoneCelular',
+      align: 'text-center',
+    },
     { header: 'Telefone Fixo', field: 'telefoneFixo', align: 'text-center' },
     { header: 'E-Mail', field: 'email', align: 'text-center' },
     { header: 'Endereço', field: 'endereco', align: 'text-center' },
     { header: 'Alergias', field: 'alergias', align: 'text-start' },
   ];
-  @Output() exibirFormularioCliente: EventEmitter<boolean> = new EventEmitter<boolean>;
+  @Output() exibirFormularioCliente: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
 
-  constructor(private clienteService: ClientesService) {}
+  constructor(private clienteService: ClientesService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   obterTodosClientes(
     numeroPagina: number,
@@ -40,7 +44,7 @@ export class TabelaClientesComponent implements OnInit {
     ordenarPor?: string
   ): void {
     this.clienteService
-      .obterTodosClientes(numeroPagina, quantidadePorPagina, ordenarPor)
+      .obterClientesPorPagina(numeroPagina, quantidadePorPagina, ordenarPor)
       .subscribe({
         next: (resposta) => {
           this.clientes = resposta.content;
@@ -49,7 +53,7 @@ export class TabelaClientesComponent implements OnInit {
         error: (erro) => {
           console.log('ERRO OBTER CLIENTES ' + erro);
         },
-        complete: () => {},
+        complete: () => { },
       });
   }
 

@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { TabelaClientesComponent } from './tabela-clientes/tabela-clientes.component';
 import { FormularioClientesComponent } from './formulario-clientes/formulario-clientes.component';
 
 @Component({
@@ -7,7 +6,7 @@ import { FormularioClientesComponent } from './formulario-clientes/formulario-cl
   templateUrl: './clientes.component.html',
 })
 export class ClientesComponent {
-  
+
   @ViewChild(FormularioClientesComponent) formularioClientes!: FormularioClientesComponent;
 
   exibirFormularioCliente() {
