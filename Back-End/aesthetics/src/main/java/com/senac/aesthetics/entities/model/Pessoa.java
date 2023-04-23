@@ -1,7 +1,6 @@
 package com.senac.aesthetics.entities.model;
 
-import org.hibernate.validator.constraints.br.CPF;
-
+import com.senac.aesthetics.entities.anotations.CPF;
 import com.senac.aesthetics.entities.anotations.Telefone;
 
 import jakarta.persistence.Column;
