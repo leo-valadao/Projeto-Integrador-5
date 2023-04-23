@@ -85,7 +85,7 @@ export class TabelaClientesComponent implements OnInit {
     this.clienteService.excluirCliente(idCliente).subscribe({
       next: (resposta) => { },
       error: (erro) => { },
-      complete: () => { },
+      complete: () => { this.atualizarTabela() },
     });
     this.atualizarTabela();
   }

@@ -80,7 +80,7 @@ export class TabelaProfissionaisComponent {
     this.clienteService.excluirProfissional(idProfissional).subscribe({
       next: (resposta) => { },
       error: (erro) => { },
-      complete: () => { },
+      complete: () => { this.atualizarTabela() },
     });
     this.atualizarTabela();
   }
