@@ -10,6 +10,7 @@
   "license": "MIT",
   "devDependencies": {
     "@bahmutov/cy-api": "^2.2.4",
-    "cypress": "^12.8.1"
+    "cypress": "^12.8.1",
+    "leite": "^0.2.0"
   }
 }
