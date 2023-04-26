@@ -20,7 +20,7 @@ public class ServicoService {
 
     // Métodos:
     public Page<Servico> obterTodosServicos(Integer numeroPagina, Integer quantidadePorPagina, String ordenarPor) {
-        Pageable pagina = PageRequest.of(numeroPagina, quantidadePorPagina, Sort.by(ordenarPor));
+        Pageable pagina = PageRequest.of(numeroPagina, quantidadePorPagina, Sort.by(Sort.Direction.DESC, ordenarPor));
 
         return servicoRepository.findAll(pagina);
     }

@@ -21,7 +21,7 @@ public class ProfissionalService {
     // Métodos:
     public Page<Profissional> obterTodosProfissionais(Integer numeroPagina, Integer quantidadePorPagina,
             String ordenarPor) {
-        Pageable pagina = PageRequest.of(numeroPagina, quantidadePorPagina, Sort.by(ordenarPor));
+        Pageable pagina = PageRequest.of(numeroPagina, quantidadePorPagina, Sort.by(Sort.Direction.DESC, ordenarPor));
 
         return profissionalRepository.findAll(pagina);
     }

@@ -1,0 +1,44 @@
+<p>formulario-agendamentos works!</p>
+
+<div>
+  <form>
+    <div>
+      <label for="agendamentoDataHora">Data e Horário:</label>
+      <input
+        type="text"
+        id="agendamentoDataHora"
+        name="agendamentoDataHora"
+        [(ngModel)]="agendamento.agendamentoDataHora"
+        pInputText
+      />
+    </div>
+
+    <div>
+      <label for="duracao">Duração:</label>
+      <input
+        type="number"
+        id="duracao"
+        name="duracao"
+        [(ngModel)]="agendamento.duracao"
+        pInputText
+      />
+    </div>
+
+    <div>
+      <label for="finalizacaoAgendamento"> Data e Horário final:</label>
+      <input
+        type="text"
+        id="finalizacaoAgendamento"
+        name="finalizacaoAgendamento"
+        [(ngModel)]="agendamento.finalizacaoAgendamento"
+        pInputText
+      />
+    </div>
+
+    <button
+      pButton
+      type="button"
+      label="Salvar"
+    ></button>
+  </form>
+</div>
