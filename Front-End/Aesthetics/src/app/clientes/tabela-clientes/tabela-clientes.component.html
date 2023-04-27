@@ -19,6 +19,7 @@
       <div class="d-flex align-items-center justify-content-between">
         Clientes
         <button
+          data-cy="adicionar-cliente"
           pButton
           pRipple
           icon="pi pi-plus"
@@ -49,17 +50,19 @@
           <p-tableCheckbox [value]="cliente"></p-tableCheckbox>
         </td>
 
-        <td *ngFor="let col of columns" class="align-middle {{ col.align }}">
+        <td *ngFor="let col of columns" class="align-middle {{ col.align }}" >
           {{ cliente[col.field] }}
         </td>
 
         <td class="align-middle text-center gap-3">
           <i
+            data-cy="edit-cliente"
             class="pi pi-pencil"
             style="font-size: 2rem"
             (click)="mostrarFormularioCliente(cliente)"
           ></i>
           <i
+            data-cy="delete-cliente"
             class="pi pi-trash ms-3"
             style="font-size: 2rem; color: rgb(255, 0, 0) !important"
             (click)="excluirCliente(cliente.id)"
