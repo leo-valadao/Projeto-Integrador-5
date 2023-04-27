@@ -1,44 +1,82 @@
-<p>formulario-agendamentos works!</p>
-
-<div>
-  <form>
-    <div>
-      <label for="agendamentoDataHora">Data e Horário:</label>
-      <input
-        type="text"
-        id="agendamentoDataHora"
-        name="agendamentoDataHora"
-        [(ngModel)]="agendamento.agendamentoDataHora"
-        pInputText
-      />
+<p-dialog
+header="Cadastro de Agendamento"
+[(visible)]="exibirFormulario"
+[modal]="true"
+[style]="{ width: '50vw', higth: '80vw' }"
+>
+  <form 
+  [formGroup]="formularioAgendamento"
+  class="d-flex flex-column gap-3"
+  (ngSubmit)="salvarAgendamento()"
+  >
+    <div class="d-flex flex-row gap-3">
+      <div class="d-flex flex-column w-100">
+        <label for="agendamentoDataHora">Data e Horário:</label>
+        <p-calendar [(ngModel)]="agendamento.agendamentoDataHora" 
+        formControlName="agendamentoDataHora"
+        [showTime]="true" [showSeconds]="true"
+        [showIcon]="true"></p-calendar>
+      </div>
+    </div>
+    <div class="d-flex flex-row gap-3">
+      <div class="d-flex flex-column w-100">
+        <label for="duracao">Duração:</label>
+        <input
+          pInputText
+          [(ngModel)]="agendamento.duracao"
+          formControlName="duracao"
+          
+          type="time"
+          id="duracao"
+          name="duracao"
+        />
+      </div>
+    </div>
+    <div class="d-flex flex-row gap-3">
+      <div class="d-flex flex-column w-100">
+        <label for="finalizacaoAgendamento">Horário Final:</label>
+        <p-calendar [(ngModel)]="agendamento.finalizacaoAgendamento" 
+        formControlName="finalizacaoAgendamento"
+        [showTime]="true" [showSeconds]="true"
+        [showIcon]="true"></p-calendar>
+      </div>
     </div>
 
-    <div>
-      <label for="duracao">Duração:</label>
-      <input
-        type="number"
-        id="duracao"
-        name="duracao"
-        [(ngModel)]="agendamento.duracao"
-        pInputText
-      />
+    <div class="d-flex flex-row gap-3">
+      <div class="d-flex flex-column w-100">
+        <label for="profissional"> Profissional:</label>
+      <p-multiSelect [options]="profissionais" [(ngModel)]="profissionaisSelecionados" optionLabel="nome" 
+      ></p-multiSelect>
     </div>
+  </div>
 
-    <div>
-      <label for="finalizacaoAgendamento"> Data e Horário final:</label>
-      <input
-        type="text"
-        id="finalizacaoAgendamento"
-        name="finalizacaoAgendamento"
-        [(ngModel)]="agendamento.finalizacaoAgendamento"
-        pInputText
-      />
+    <div class="d-flex flex-row gap-3">
+      <div class="d-flex flex-column w-100">
+        <label for="servico"> Serviço:</label>
+      <p-multiSelect [options]="servicos" [(ngModel)]="servicosSelecionados" optionLabel="nome" 
+      ></p-multiSelect>
     </div>
+  </div>
 
-    <button
-      pButton
-      type="button"
-      label="Salvar"
-    ></button>
+    <div class="d-flex flex-row gap-3">
+      <div class="d-flex flex-column w-100">
+        <label for="cliente"> Cliente:</label>
+      <p-multiSelect [options]="clientes" [(ngModel)]="clientesSelecionados" optionLabel="nome" 
+      ></p-multiSelect>
+    </div>
+  </div>
+
+
+    <button pButton type="submit" label="Salvar" [disabled]="formularioAgendamento.invalid"></button>
   </form>
-</div>
+</p-dialog>
+
+
+
+
+
+
+
+
+
+
