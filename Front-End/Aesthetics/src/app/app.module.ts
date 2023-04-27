@@ -14,6 +14,8 @@ import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { CalendarModule } from 'primeng/calendar';
 
 // Aesthetics
 import { AppComponent } from './app.component';
@@ -66,6 +68,8 @@ import { FormularioAgendamentosComponent } from './agendamentos/formulario-agend
     DialogModule,
     InputMaskModule,
     ReactiveFormsModule,
+    MultiSelectModule,
+    CalendarModule,
     RouterModule.forRoot(Rotas, { onSameUrlNavigation: 'reload' }),
   ],
   providers: [],

@@ -61,6 +61,6 @@ public class Servico {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToMany(fetch = FetchType.LAZY, targetEntity = com.senac.aesthetics.entities.model.Profissional.class)
     @JoinTable(name = "PROFISSIONAIS_DO_SERVICO", joinColumns = @JoinColumn(name = "ID_PROFISSIONAL_FK"), inverseJoinColumns = @JoinColumn(name = "ID_SERVICO_FK"))
-    private List<Profissional> profissionais;
+    private List<Profissional> profissionaisDisponiveis;
 
 }

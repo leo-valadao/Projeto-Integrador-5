@@ -96,7 +96,7 @@ public class AestheticsApplication implements ApplicationRunner {
 				Profissional p1 = ps.obterProfissionalPorId(Long.valueOf(i));
 				Profissional p2 = ps.obterProfissionalPorId(Long.valueOf(i + 1));
 
-				s.setProfissionais(Arrays.asList(p1, p2));
+					s.setProfissionaisDisponiveis(Arrays.asList(p1, p2));
 
 				ss.inserirServico(s);
 			}

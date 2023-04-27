@@ -42,7 +42,8 @@ public class Profissional extends Pessoa {
 
     // Relacionamentos:
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "profissionais", targetEntity = com.senac.aesthetics.entities.model.Servico.class)
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "profissionaisDisponiveis", targetEntity = com.senac.aesthetics.entities.model.Servico.class)
     private List<Servico> servicosDisponiveis;
 
 }
+    
