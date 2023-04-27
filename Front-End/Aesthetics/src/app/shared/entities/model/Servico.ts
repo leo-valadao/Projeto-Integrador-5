@@ -7,7 +7,7 @@ export class Servico {
     public descricao!: string;
     public valor!: string;
 
-    public profissionais!: Profissional[];
+    public profissionaisDisponiveis!: Profissional[];
 
     constructor() { }
 }

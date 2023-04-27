@@ -11,62 +11,131 @@ import { ServicosService } from 'src/app/shared/services/servicos.service';
 
 @Component({
   selector: 'app-formulario-agendamentos',
-  templateUrl: './formulario-agendamentos.component.html'
+  templateUrl: './formulario-agendamentos.component.html',
 })
 export class FormularioAgendamentosComponent implements OnInit {
-
-
   // Variáveis
   @Input() agendamento: Agendamento = new Agendamento();
   exibirFormulario: boolean = false;
   profissionais!: Profissional[];
-  profissionaisSelecionados!: Profissional[];
+  profissionalSelecionado!: Profissional;
   clientes!: Cliente[];
-  clientesSelecionados!: Cliente[];
+  clienteSelecionado!: Cliente;
   servicos!: Servico[];
-  servicosSelecionados!: Servico[];
+  servicoSelecionado!: Servico;
 
+  // TODO - Trocar Os P-MultiSelect Para COMPONENTE PRIME NG
+  // DE APENAS 1 OPÇÃO DE ESCOLHA
 
-   // Emissores
-   @Output() atualizarTabela: EventEmitter<void> =
-   new EventEmitter();
+  // Emissores
+  @Output() atualizarTabela: EventEmitter<void> = new EventEmitter();
 
-   formularioAgendamento = this.formBuilder.group({
-    agendamentoDataHora: [this.agendamento.agendamentoDataHora, [Validators.required]],
-    duracao: [this.agendamento.duracao],
-    finalizacaoAgendamento: [this.agendamento.finalizacaoAgendamento],
-    profissional: [this.agendamento.profissional],
-    cliente: [this.agendamento.cliente],
-    servico: [this.agendamento.servico ],
-   
+  formularioAgendamento = this.formBuilder.group({
+    agendamentoDataHora: [
+      this.agendamento.agendamentoDataHora,
+      [Validators.required],
+    ],
+    duracao: [this.agendamento.duracao, Validators.required],
+    finalizacaoAgendamento: [
+      this.agendamento.finalizacaoAgendamento,
+      Validators.required,
+    ],
+    profissional: [this.agendamento.profissional, Validators.required],
+    servico: [this.agendamento.servico, Validators.required],
+    cliente: [this.agendamento.cliente, Validators.required],
   });
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private formBuilder: FormBuilder,
     private agendamentoService: AgendamentosService,
     private profissionalService: ProfissionaisService,
     private clientelService: ClientesService,
     private servicolService: ServicosService
-    ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.formularioAgendamento.invalid
+    this.formularioAgendamento.invalid;
+
+    this.profissionalService.obterProfissionaisPorPagina(0, 1000).subscribe({
+      next: (resposta) => {
+        this.profissionais = resposta.content;
+      },
+      error: (erro) => {},
+      complete: () => {
+        this.atualizarTabela.emit();
+      },
+    });
+
+    this.servicolService.obterServicosPorPagina(0, 1000).subscribe({
+      next: (resposta) => {
+        this.servicos = resposta.content;
+      },
+      error: (erro) => {},
+      complete: () => {
+        this.atualizarTabela.emit();
+      },
+    });
+
+    this.clientelService.obterClientesPorPagina(0, 1000).subscribe({
+      next: (resposta) => {
+        this.clientes = resposta.content;
+      },
+      error: (erro) => {},
+      complete: () => {
+        this.atualizarTabela.emit();
+      },
+    });
   }
 
   salvarAgendamento() {
     if (this.agendamento.id) {
       this.agendamentoService.atualizarAgendamento(this.agendamento).subscribe({
-        next: (resposta) => { },
-        error: (erro) => { },
-        complete: () => { this.atualizarTabela.emit(); }
+        next: (resposta) => {},
+        error: (erro) => {},
+        complete: () => {
+          this.atualizarTabela.emit();
+        },
       });
     } else {
       this.agendamentoService.salvarAgendamento(this.agendamento).subscribe({
-        next: (resposta) => { },
-        error: (erro) => { },
-        complete: () => { this.atualizarTabela.emit(); }
+        next: (resposta) => {},
+        error: (erro) => {},
+        complete: () => {
+          this.atualizarTabela.emit();
+        },
       });
     }
   }
 
+  atualizarServicosPorProfissional(profissionalSelecionado: Profissional) {
+    if (profissionalSelecionado) {
+      this.servicos = profissionalSelecionado.servicosDisponiveis;
+    } else {
+      this.profissionalService.obterProfissionaisPorPagina(0, 1000).subscribe({
+        next: (resposta) => {
+          this.profissionais = resposta.content;
+        },
+        error: (erro) => {},
+        complete: () => {
+          this.atualizarTabela.emit();
+        },
+      });
+    }
+  }
 
+  atualizarProfissionalPorServico(servicoSelecionado: Servico) {
+    if (servicoSelecionado) {
+      this.profissionais = servicoSelecionado.profissionaisDisponiveis;
+    } else {
+      this.servicolService.obterServicosPorPagina(0, 1000).subscribe({
+        next: (resposta) => {
+          this.servicos = resposta.content;
+        },
+        error: (erro) => {},
+        complete: () => {
+          this.atualizarTabela.emit();
+        },
+      });
+    }
+  }
 }

@@ -1,21 +1,24 @@
 <p-dialog
-header="Cadastro de Agendamento"
-[(visible)]="exibirFormulario"
-[modal]="true"
-[style]="{ width: '50vw', higth: '80vw' }"
+  header="Cadastro de Agendamento"
+  [(visible)]="exibirFormulario"
+  [modal]="true"
+  [style]="{ width: '50vw', higth: '80vw' }"
 >
-  <form 
-  [formGroup]="formularioAgendamento"
-  class="d-flex flex-column gap-3"
-  (ngSubmit)="salvarAgendamento()"
+  <form
+    [formGroup]="formularioAgendamento"
+    class="d-flex flex-column gap-3"
+    (ngSubmit)="salvarAgendamento()"
   >
     <div class="d-flex flex-row gap-3">
       <div class="d-flex flex-column w-100">
         <label for="agendamentoDataHora">Data e Horário:</label>
-        <p-calendar [(ngModel)]="agendamento.agendamentoDataHora" 
-        formControlName="agendamentoDataHora"
-        [showTime]="true" [showSeconds]="true"
-        [showIcon]="true"></p-calendar>
+        <p-calendar
+          [(ngModel)]="agendamento.agendamentoDataHora"
+          formControlName="agendamentoDataHora"
+          [showTime]="true"
+          [showSeconds]="true"
+          [showIcon]="true"
+        ></p-calendar>
       </div>
     </div>
     <div class="d-flex flex-row gap-3">
@@ -25,7 +28,6 @@ header="Cadastro de Agendamento"
           pInputText
           [(ngModel)]="agendamento.duracao"
           formControlName="duracao"
-          
           type="time"
           id="duracao"
           name="duracao"
@@ -35,48 +37,62 @@ header="Cadastro de Agendamento"
     <div class="d-flex flex-row gap-3">
       <div class="d-flex flex-column w-100">
         <label for="finalizacaoAgendamento">Horário Final:</label>
-        <p-calendar [(ngModel)]="agendamento.finalizacaoAgendamento" 
-        formControlName="finalizacaoAgendamento"
-        [showTime]="true" [showSeconds]="true"
-        [showIcon]="true"></p-calendar>
+        <p-calendar
+          [(ngModel)]="agendamento.finalizacaoAgendamento"
+          formControlName="finalizacaoAgendamento"
+          [showTime]="true"
+          [showSeconds]="true"
+          [showIcon]="true"
+        ></p-calendar>
       </div>
     </div>
 
     <div class="d-flex flex-row gap-3">
       <div class="d-flex flex-column w-100">
         <label for="profissional"> Profissional:</label>
-      <p-multiSelect [options]="profissionais" [(ngModel)]="profissionaisSelecionados" optionLabel="nome" 
-      ></p-multiSelect>
+        <p-multiSelect
+          [options]="profissionais"
+          [(ngModel)]="profissionalSelecionado"
+          formControlName="profissional"
+          optionLabel="nome"
+          [selectionLimit]="1"
+          (onChange)="atualizarServicosPorProfissional(profissionalSelecionado)"
+        ></p-multiSelect>
+      </div>
     </div>
-  </div>
 
     <div class="d-flex flex-row gap-3">
       <div class="d-flex flex-column w-100">
         <label for="servico"> Serviço:</label>
-      <p-multiSelect [options]="servicos" [(ngModel)]="servicosSelecionados" optionLabel="nome" 
-      ></p-multiSelect>
+        <p-multiSelect
+          [options]="servicos"
+          [(ngModel)]="servicoSelecionado"
+          formControlName="servico"
+          optionLabel="nome"
+          [selectionLimit]="1"
+          (onChange)="atualizarProfissionalPorServico(servicoSelecionado)"
+        ></p-multiSelect>
+      </div>
     </div>
-  </div>
 
     <div class="d-flex flex-row gap-3">
       <div class="d-flex flex-column w-100">
         <label for="cliente"> Cliente:</label>
-      <p-multiSelect [options]="clientes" [(ngModel)]="clientesSelecionados" optionLabel="nome" 
-      ></p-multiSelect>
+        <p-multiSelect
+          [options]="clientes"
+          [(ngModel)]="clienteSelecionado"
+          formControlName="cliente"
+          [selectionLimit]="1"
+          optionLabel="nome"
+        ></p-multiSelect>
+      </div>
     </div>
-  </div>
 
-
-    <button pButton type="submit" label="Salvar" [disabled]="formularioAgendamento.invalid"></button>
+    <button
+      pButton
+      type="submit"
+      label="Salvar"
+      [disabled]="formularioAgendamento.invalid"
+    ></button>
   </form>
 </p-dialog>
-
-
-
-
-
-
-
-
-
-
