@@ -1,4 +1,5 @@
 export const url = Cypress.env("apiUrl");
+// var position = Math.floor(Math.random() * 9);
 
 Cypress.Commands.add("GetAllClients", () => {
   cy.api({

@@ -20,6 +20,7 @@ Cypress.Commands.add("GetAllProfissionais", () => {
   }).then(function (response) {
     Cypress.env("profissional_del", response.body.content[1].id);
     Cypress.env("profissional_put", response.body.content[2].id);
+    Cypress.env("id_profissional", response.body.content[0].id)
     return response;
   });
 });
