@@ -1,5 +1,8 @@
 ///<reference types='Cypress' />
-import {payloadPost, payloadPut } from "../../support/Utils/Data/Profissional/payloadProfissional";
+import {
+  payloadPost,
+  payloadPut,
+} from "../../support/Utils/Data/Profissional/payloadProfissional";
 
 describe("Profissionais", () => {
   it("POST Profissional", () => {
@@ -42,4 +45,20 @@ describe("Profissionais", () => {
       expect(res.body.email).to.eql(postPayload.email);
     });
   });
+
+  it("DELETE Profissional", () => {
+    const id = Cypress.env("profissional_del");
+    cy.DeleteProfissional(id).then((res) => {
+      expect(res.status).to.eql(204);
+    });
+  });
+
+  it("DELETE Profissional", () => {
+    const id = Cypress.env("profissional_del");
+    cy.DeleteProfissional(id).then((res) => {
+      expect(res.status).to.eql(500);
+      expect(res.body.message).to.eql(`Profissional Não Encontrado! ID: ${id}`)
+    });
+  });
+
 });

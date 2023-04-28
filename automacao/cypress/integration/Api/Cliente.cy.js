@@ -20,7 +20,7 @@ describe("Clientes", () => {
     });
   });
 
-  it.only("POST Cliente - Success True", () => {
+  it("POST Cliente - Success True", () => {
     const payload = payloadPost();
     cy.PostCliente(payload).then((res) => {
       expect(res.status).to.eql(201);

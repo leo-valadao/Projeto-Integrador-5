@@ -47,3 +47,16 @@ Cypress.Commands.add("PutProfissional", (payload) => {
     return response;
   });
 });
+
+Cypress.Commands.add("DeleteProfissional", (id) => {
+  cy.api({
+    method: "DELETE",
+    url: `${url}/profissional`,
+    qs: {
+      id: id,
+    },
+    failOnStatusCode: false,
+  }).then((response) => {
+    return response;
+  });
+});

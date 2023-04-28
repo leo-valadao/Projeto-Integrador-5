@@ -1,0 +1,52 @@
+{
+  "services": [
+    {
+      "nome": "Corte de Cabelo",
+      "descricao": "É so um corte de cabelo mesmo",
+      "valor": 30.0,
+      "profissionais": [
+        {
+          "id": 2
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        }
+      ]
+    },
+    {
+      "nome": "Escova",
+      "descricao": "É so uma escova mesmo",
+      "valor": 50.0,
+      "profissionais": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        }
+      ]
+    },
+    {
+      "nome": "Prograssiva",
+      "descricao": "É so uma Prograssiva mesmo",
+      "valor": 100,
+      "profissionais": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        }
+      ]
+    }
+  ]
+}
