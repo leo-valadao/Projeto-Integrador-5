@@ -42,7 +42,7 @@ public class ServicoService {
         if (!servicoRepository.existePorNome(servico.getNome())) {
             return servicoRepository.save(servico);
         } else {
-            throw new AestheticsExeception(TipoMensagemEnum.ERROR, "Serviço Já Existe! Nome: " + servico.getNome());
+            throw new AestheticsExeception(TipoMensagemEnum.WARN, "Serviço Já Existe! Nome: " + servico.getNome());
         }
     }
 
