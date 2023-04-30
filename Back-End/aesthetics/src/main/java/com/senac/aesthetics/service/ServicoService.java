@@ -1,5 +1,7 @@
 package com.senac.aesthetics.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -7,8 +9,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.senac.aesthetics.entities.enumerables.TipoMensagemEnum;
 import com.senac.aesthetics.entities.model.Servico;
-import com.senac.aesthetics.error.NotFoundExeception;
+import com.senac.aesthetics.error.AestheticsExeception;
 import com.senac.aesthetics.repository.ServicoRepository;
 
 @Service
@@ -26,22 +29,28 @@ public class ServicoService {
     }
 
     public Servico obterServicoPorId(Long idServico) {
-        if (servicoRepository.existsById(idServico)) {
-            return servicoRepository.findById(idServico).get();
+        Optional<Servico> servico = servicoRepository.findById(idServico);
+
+        if (servico.isPresent()) {
+            return servico.get();
         } else {
-            throw new NotFoundExeception("Serviço Não Encontrado! ID: " + idServico);
+            throw new AestheticsExeception(TipoMensagemEnum.ERROR, "Serviço Não Encontrado! ID: " + idServico);
         }
     }
 
     public Servico inserirServico(Servico servico) {
-        return servicoRepository.save(servico);
+        if (!servicoRepository.existePorNome(servico.getNome())) {
+            return servicoRepository.save(servico);
+        } else {
+            throw new AestheticsExeception(TipoMensagemEnum.ERROR, "Serviço Já Existe! Nome: " + servico.getNome());
+        }
     }
 
     public Servico atualizarServico(Servico servico) {
         if (servicoRepository.existsById(servico.getId())) {
             return servicoRepository.saveAndFlush(servico);
         } else {
-            throw new NotFoundExeception("Serviço Não Encontrado! ID: " + servico.getId());
+            throw new AestheticsExeception(TipoMensagemEnum.ERROR, "Serviço Não Encontrado! ID: " + servico.getId());
         }
     }
 
@@ -49,7 +58,7 @@ public class ServicoService {
         if (servicoRepository.existsById(idServico)) {
             servicoRepository.deleteById(idServico);
         } else {
-            throw new NotFoundExeception("Serviço Não Encontrado! ID: " + idServico);
+            throw new AestheticsExeception(TipoMensagemEnum.ERROR, "Serviço Não Encontrado! ID: " + idServico);
         }
     }
 }

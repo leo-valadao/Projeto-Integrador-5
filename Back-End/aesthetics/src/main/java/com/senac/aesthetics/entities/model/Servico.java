@@ -43,7 +43,7 @@ public class Servico {
     @Column(name = "ID_SERVICO", nullable = false)
     private Long id;
 
-    @Column(name = "NOME", length = 50, nullable = false)
+    @Column(name = "NOME", length = 50, nullable = false, unique = true)
     @NotBlank(message = "O Nome do Serviço Não Pode Estar Vazio!")
     @Size(max = 50, message = "O Tamanho Máximo da Nome do Serviço é de 50 Caracteres!")
     private String nome;
