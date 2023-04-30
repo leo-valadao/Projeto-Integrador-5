@@ -7,8 +7,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.senac.aesthetics.entities.enumerables.TipoMensagemEnum;
 import com.senac.aesthetics.entities.model.Profissional;
-import com.senac.aesthetics.error.NotFoundExeception;
+import com.senac.aesthetics.error.AestheticsExeception;
 import com.senac.aesthetics.repository.ProfissionalRepository;
 
 @Service
@@ -30,7 +31,7 @@ public class ProfissionalService {
         if (profissionalRepository.existsById(idProfissional)) {
             return profissionalRepository.findById(idProfissional).get();
         } else {
-            throw new NotFoundExeception("Profissional Não Encontrado! ID: " + idProfissional);
+            throw new AestheticsExeception(TipoMensagemEnum.ERROR, "Profissional Não Encontrado! ID: " + idProfissional);
         }
     }
 
@@ -42,7 +43,7 @@ public class ProfissionalService {
         if (profissionalRepository.existsById(profissional.getId())) {
             return profissionalRepository.saveAndFlush(profissional);
         } else {
-            throw new NotFoundExeception("Profissional Não Encontrado! ID: " + profissional.getId());
+            throw new AestheticsExeception(TipoMensagemEnum.ERROR, "Profissional Não Encontrado! ID: " + profissional.getId());
         }
     }
 
@@ -50,7 +51,7 @@ public class ProfissionalService {
         if (profissionalRepository.existsById(idProfissional)) {
             profissionalRepository.deleteById(idProfissional);
         } else {
-            throw new NotFoundExeception("Profissional Não Encontrado! ID: " + idProfissional);
+            throw new AestheticsExeception(TipoMensagemEnum.ERROR, "Profissional Não Encontrado! ID: " + idProfissional);
         }
     }
 }

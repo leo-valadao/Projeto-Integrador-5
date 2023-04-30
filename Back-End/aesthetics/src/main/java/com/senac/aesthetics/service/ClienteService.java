@@ -7,8 +7,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.senac.aesthetics.entities.enumerables.TipoMensagemEnum;
 import com.senac.aesthetics.entities.model.Cliente;
-import com.senac.aesthetics.error.NotFoundExeception;
+import com.senac.aesthetics.error.AestheticsExeception;
 import com.senac.aesthetics.repository.ClienteRepository;
 
 @Service
@@ -29,7 +30,7 @@ public class ClienteService {
         if (clienteRepository.existsById(idCliente)) {
             return clienteRepository.findById(idCliente).get();
         } else {
-            throw new NotFoundExeception("Cliente Não Encontrado! ID: " + idCliente);
+            throw new AestheticsExeception(TipoMensagemEnum.ERROR, "Cliente Não Encontrado! ID: " + idCliente);
         }
     }
 
@@ -41,7 +42,7 @@ public class ClienteService {
         if (clienteRepository.existsById(cliente.getId())) {
             return clienteRepository.saveAndFlush(cliente);
         } else {
-            throw new NotFoundExeception("Cliente Não Encontrado! ID: " + cliente.getId());
+            throw new AestheticsExeception(TipoMensagemEnum.ERROR, "Cliente Não Encontrado! ID: " + cliente.getId());
         }
     }
 
@@ -49,7 +50,7 @@ public class ClienteService {
         if (clienteRepository.existsById(idCliente)) {
             clienteRepository.deleteById(idCliente);
         } else {
-            throw new NotFoundExeception("Cliente Não Encontrado! ID: " + idCliente);
+            throw new AestheticsExeception(TipoMensagemEnum.ERROR, "Cliente Não Encontrado! ID: " + idCliente);
         }
     }
 }
