@@ -18,6 +18,7 @@ import com.senac.aesthetics.service.AgendamentoService;
 import com.senac.aesthetics.service.ClienteService;
 import com.senac.aesthetics.service.ProfissionalService;
 import com.senac.aesthetics.service.ServicoService;
+import com.senac.aesthetics.util.GeradorDocumentos;
 
 @SpringBootApplication
 public class AestheticsApplication implements ApplicationRunner {
@@ -42,14 +43,16 @@ public class AestheticsApplication implements ApplicationRunner {
 		System.out.println("##############################\n");
 	}
 
-	/* 
+	/*
 	 * TODO: REMOVER ESTE MÉTODO:
+	 * 
 	 * @Override
 	 * public void run(ApplicationArguments args) throws Exception
 	 * 
 	 * TODO: REMOVER A INTERFACE:
 	 * ApplicationRunner
 	 * DA CLASSE:
+	 * 
 	 * @SpringBootApplication
 	 * public class AestheticsApplication implements ApplicationRunner
 	 * AO MIGRAR PARA PRODUÇÃO!
@@ -60,11 +63,13 @@ public class AestheticsApplication implements ApplicationRunner {
 		boolean InserirDadosDeTeste = true;
 
 		if (InserirDadosDeTeste) {
+			GeradorDocumentos gd = new GeradorDocumentos();
+
 			for (int i = 1; i <= 150; i++) {
 				Cliente c = new Cliente();
 
 				c.setNome("Cliente " + i);
-				c.setCpf("226.153.080-33");
+				c.setCpf(gd.cpf(true));
 				c.setEndereco("Endereço " + i);
 				c.setTelefoneCelular("(12)34567-8901");
 				c.setTelefoneFixo("(12)34567-8901");
@@ -77,7 +82,7 @@ public class AestheticsApplication implements ApplicationRunner {
 			for (int i = 1; i <= 150; i++) {
 				Profissional p = new Profissional();
 				p.setNome("Profissional " + i);
-				p.setCpf("226.153.080-33");
+				p.setCpf(gd.cpf(true));
 				p.setEndereco("Endereco " + i);
 				p.setTelefoneCelular("(12)34567-8901");
 				p.setTelefoneFixo("(12)34567-8901");
@@ -96,7 +101,7 @@ public class AestheticsApplication implements ApplicationRunner {
 				Profissional p1 = ps.obterProfissionalPorId(Long.valueOf(i));
 				Profissional p2 = ps.obterProfissionalPorId(Long.valueOf(i + 1));
 
-					s.setProfissionaisDisponiveis(Arrays.asList(p1, p2));
+				s.setProfissionaisDisponiveis(Arrays.asList(p1, p2));
 
 				ss.inserirServico(s);
 			}

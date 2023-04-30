@@ -27,7 +27,7 @@ public abstract class Pessoa {
     @Size(max = 50, message = "O Tamanho Máximo da Nome da Pessoa é de 50 Caracteres!")
     private String nome;
 
-    @Column(name = "CPF", length = 14)
+    @Column(name = "CPF", length = 14, nullable = false, unique = true)
     @CPF(message = "O CPF da Pessoas Está Inválido!")
     private String cpf;
 
