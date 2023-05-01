@@ -16,6 +16,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { CalendarModule } from 'primeng/calendar';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 // Aesthetics
 import { AppComponent } from './app.component';
@@ -70,9 +72,10 @@ import { FormularioAgendamentosComponent } from './agendamentos/formulario-agend
     ReactiveFormsModule,
     MultiSelectModule,
     CalendarModule,
+    ToastModule,
     RouterModule.forRoot(Rotas, { onSameUrlNavigation: 'reload' }),
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
