@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
 import { Table } from 'primeng/table';
-import { Agendamento } from 'src/app/shared/entities/model/Agendamento';
+import { Agendamento } from 'src/app/shared/entities/model/agendamento.model';
 import { AgendamentosService } from 'src/app/shared/services/agendamentos.service';
 @Component({
   selector: 'app-tabela-agendamentos',

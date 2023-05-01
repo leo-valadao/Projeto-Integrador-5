@@ -1,4 +1,4 @@
-import { Profissional } from "./Profissional";
+import { Profissional } from "./profissional.model";
 
 export class Servico {
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Page } from '../entities/others/Page';
-import { Servico } from '../entities/model/Servico';
+import { Servico } from '../entities/model/servico.model';
 import { HttpClient } from '@angular/common/http';
 import { ActiveAPIs } from 'src/environments/env-desenvolvimento';
 

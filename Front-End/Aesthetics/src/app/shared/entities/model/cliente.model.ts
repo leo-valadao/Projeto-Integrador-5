@@ -1,4 +1,4 @@
-import { Pessoa } from "./Pessoa";
+import { Pessoa } from "./pessoa.model";
 
 export class Cliente extends Pessoa {
 

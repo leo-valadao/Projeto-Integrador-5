@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormularioAgendamentosComponent } from './formulario-agendamentos/formulario-agendamentos.component';
 import { TabelaAgendamentosComponent } from './tabela-agendamentos/tabela-agendamentos.component';
-import { Agendamento } from '../shared/entities/model/Agendamento';
+import { Agendamento } from '../shared/entities/model/agendamento.model';
 
 @Component({
   selector: 'app-agendamentos',

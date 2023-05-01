@@ -1,6 +1,6 @@
-import { Cliente } from "./Cliente";
-import { Profissional } from "./Profissional";
-import { Servico } from "./Servico";
+import { Cliente } from "./cliente.model";
+import { Profissional } from "./profissional.model";
+import { Servico } from "./servico.model";
 
 export class Agendamento {
 

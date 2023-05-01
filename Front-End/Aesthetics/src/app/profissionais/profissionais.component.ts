@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { TabelaProfissionaisComponent } from './tabela-profissionais/tabela-profissionais.component';
 import { FormularioProfissionaisComponent } from './formulario-profissionais/formulario-profissionais.component';
-import { Profissional } from '../shared/entities/model/Profissional';
+import { Profissional } from '../shared/entities/model/profissional.model';
 
 @Component({
   selector: 'app-profissionais',

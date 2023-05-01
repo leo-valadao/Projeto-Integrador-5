@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Page } from '../entities/others/Page';
-import { Cliente } from '../entities/model/Cliente';
+import { Cliente } from '../entities/model/cliente.model';
 import { ActiveAPIs } from 'src/environments/env-desenvolvimento';
 
 @Injectable({
