@@ -10,12 +10,15 @@
     [rows]="quantidadeProfissionaisExibidosPorPagina"
     [lazy]="true"
     [showCurrentPageReport]="true"
+    [autoLayout]="true"
     currentPageReportTemplate="Mostrando do {first}º ao {last}º de {totalRecords} profissionais"
     [rowsPerPageOptions]="[10, 30, 50, 100]"
     (onLazyLoad)="mudarPagina($event)"
   >
     <ng-template pTemplate="caption">
-      <div class="d-flex align-items-center justify-content-between">
+      <div
+        class="d-flex align-items-center justify-content-between align-middle text-center"
+      >
         Profissionais
         <button
           pButton
@@ -30,7 +33,9 @@
 
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th class="flex align-items-center justify-content-between">
+        <th
+          class="flex align-items-center justify-content-between align-middle text-center"
+        >
           <p-tableHeaderCheckbox />
         </th>
 
@@ -38,30 +43,45 @@
           {{ col.header }}
         </th>
 
+        <th class="align-middle text-center">Serviço(s)</th>
+
         <th class="align-middle text-center align-items-center">Ações</th>
       </tr>
     </ng-template>
 
-    <ng-template pTemplate="body" let-cliente let-columns="columns">
+    <ng-template pTemplate="body" let-profissional let-columns="columns">
       <tr>
         <td class="align-middle text-center">
-          <p-tableCheckbox [value]="cliente"></p-tableCheckbox>
+          <p-tableCheckbox [value]="profissional"></p-tableCheckbox>
         </td>
 
         <td *ngFor="let col of columns" class="align-middle {{ col.align }}">
-          {{ cliente[col.field] }}
+          {{ profissional[col.field] }}
+        </td>
+
+        <td class="align-middle text-center">
+          <p-dropdown *ngIf="profissional.servicosDisponiveis.length > 0"
+            [options]="profissional.servicosDisponiveis"
+            optionLabel="Profissionais"
+            styleClass="w-100"
+          >
+            <ng-template let-servico pTemplate="item">
+              {{ servico["nome"] }}
+            </ng-template>
+          </p-dropdown>
+          <span *ngIf="profissional.servicosDisponiveis.length == 0">Nenhum Serviço Registrado</span>
         </td>
 
         <td class="align-middle text-center gap-3">
           <i
             class="pi pi-pencil"
             style="font-size: 2rem"
-            (click)="mostrarFormularioProfissional(cliente)"
+            (click)="mostrarFormularioProfissional(profissional)"
           ></i>
           <i
             class="pi pi-trash ms-3"
             style="font-size: 2rem; color: rgb(255, 0, 0) !important"
-            (click)="excluirProfissional(cliente.id)"
+            (click)="excluirProfissional(profissional.id)"
           ></i>
         </td>
       </tr>

@@ -1,12 +1,12 @@
-<div id="Div1" class="d-flex flex-row vh-100 ">
-    <div id="Div2">
-        <app-painel-lateral/>
+<div class="d-flex flex-column">
+  <div class="d-flex flex-row">
+    <app-painel-lateral />
+    <div class="d-flex flex-column vw-100">
+      <app-cabecalho />
+      <div class="border">
+        <router-outlet />
+      </div>
     </div>
-
-    <div id="Div3" class="vw-100 ">
-        <app-cabecalho/>
-        <p-toast position="top-right" key="toast"/>
-        <router-outlet/>
-        <app-rodape/>
-    </div>
+  </div>
+  <app-rodape />
 </div>

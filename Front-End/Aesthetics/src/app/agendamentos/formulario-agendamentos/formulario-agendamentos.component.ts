@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Agendamento } from 'src/app/shared/entities/model/Agendamento';
-import { Cliente } from 'src/app/shared/entities/model/Cliente';
-import { Profissional } from 'src/app/shared/entities/model/Profissional';
-import { Servico } from 'src/app/shared/entities/model/Servico';
+import { MessageService } from 'primeng/api';
+import { Agendamento } from 'src/app/shared/entities/model/entity/agendamento.model';
+import { Cliente } from 'src/app/shared/entities/model/entity/cliente.model';
+import { Profissional } from 'src/app/shared/entities/model/entity/profissional.model';
+import { Servico } from 'src/app/shared/entities/model/entity/servico.model';
+import { ErroGenerico } from 'src/app/shared/entities/model/error/aesthetics-erro.error';
 import { AgendamentosService } from 'src/app/shared/services/agendamentos.service';
 import { ClientesService } from 'src/app/shared/services/clientes.service';
 import { ProfissionaisService } from 'src/app/shared/services/profissionais.service';
@@ -50,7 +52,8 @@ export class FormularioAgendamentosComponent implements OnInit {
     private agendamentoService: AgendamentosService,
     private profissionalService: ProfissionaisService,
     private clientelService: ClientesService,
-    private servicolService: ServicosService
+    private servicolService: ServicosService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -60,7 +63,7 @@ export class FormularioAgendamentosComponent implements OnInit {
       next: (resposta) => {
         this.profissionais = resposta.content;
       },
-      error: (erro) => {},
+      error: (erro: ErroGenerico) => {},
       complete: () => {
         this.atualizarTabela.emit();
       },
@@ -70,7 +73,7 @@ export class FormularioAgendamentosComponent implements OnInit {
       next: (resposta) => {
         this.servicos = resposta.content;
       },
-      error: (erro) => {},
+      error: (erro: ErroGenerico) => {},
       complete: () => {
         this.atualizarTabela.emit();
       },
@@ -80,7 +83,7 @@ export class FormularioAgendamentosComponent implements OnInit {
       next: (resposta) => {
         this.clientes = resposta.content;
       },
-      error: (erro) => {},
+      error: (erro: ErroGenerico) => {},
       complete: () => {
         this.atualizarTabela.emit();
       },
@@ -90,8 +93,16 @@ export class FormularioAgendamentosComponent implements OnInit {
   salvarAgendamento() {
     if (this.agendamento.id) {
       this.agendamentoService.atualizarAgendamento(this.agendamento).subscribe({
-        next: (resposta) => {},
-        error: (erro) => {},
+        next: (resposta: Agendamento) => {
+          this.messageService.add({
+            key: 'toast',
+            severity: 'sucess',
+            summary: 'Profissional Adicionado!',
+            detail: `Agendamento realizado para ${resposta.agendamentoDataHora}!`,
+            life: 5000,
+          });
+        },
+        error: (erro: ErroGenerico) => {},
         complete: () => {
           this.atualizarTabela.emit();
         },
@@ -99,7 +110,7 @@ export class FormularioAgendamentosComponent implements OnInit {
     } else {
       this.agendamentoService.salvarAgendamento(this.agendamento).subscribe({
         next: (resposta) => {},
-        error: (erro) => {},
+        error: (erro: ErroGenerico) => {},
         complete: () => {
           this.atualizarTabela.emit();
         },
@@ -115,7 +126,7 @@ export class FormularioAgendamentosComponent implements OnInit {
         next: (resposta) => {
           this.profissionais = resposta.content;
         },
-        error: (erro) => {},
+        error: (erro: ErroGenerico) => {},
         complete: () => {
           this.atualizarTabela.emit();
         },
@@ -131,7 +142,7 @@ export class FormularioAgendamentosComponent implements OnInit {
         next: (resposta) => {
           this.servicos = resposta.content;
         },
-        error: (erro) => {},
+        error: (erro: ErroGenerico) => {},
         complete: () => {
           this.atualizarTabela.emit();
         },

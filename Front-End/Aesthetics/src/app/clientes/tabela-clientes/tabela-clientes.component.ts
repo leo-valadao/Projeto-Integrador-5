@@ -4,9 +4,10 @@ import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } fro
 // Prime NG
 import { LazyLoadEvent } from 'primeng/api';
 import { Table } from 'primeng/table';
+import { Cliente } from 'src/app/shared/entities/model/entity/cliente.model';
+import { ErroGenerico } from 'src/app/shared/entities/model/error/aesthetics-erro.error';
 
 // Aesthetics
-import { Cliente } from 'src/app/shared/entities/model/Cliente';
 import { ClientesService } from 'src/app/shared/services/clientes.service';
 
 @Component({
@@ -58,8 +59,8 @@ export class TabelaClientesComponent implements OnInit {
           this.clientes = resposta.content;
           this.quantidadeTotalClientes = resposta.totalElements;
         },
-        error: (erro) => { },
-        complete: () => { },
+        error: (erro: ErroGenerico) => {},
+        complete: () => {},
       });
   }
 
@@ -84,7 +85,7 @@ export class TabelaClientesComponent implements OnInit {
   excluirCliente(idCliente: number) {
     this.clienteService.excluirCliente(idCliente).subscribe({
       next: (resposta) => { },
-      error: (erro) => { },
+      error: (erro: ErroGenerico) => { },
       complete: () => { this.atualizarTabela() },
     });
     this.atualizarTabela();

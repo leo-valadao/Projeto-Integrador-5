@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormularioClientesComponent } from './formulario-clientes/formulario-clientes.component';
-import { Cliente } from '../shared/entities/model/cliente.model';
+
 import { TabelaClientesComponent } from './tabela-clientes/tabela-clientes.component';
+import { Cliente } from '../shared/entities/model/entity/cliente.model';
 
 @Component({
   selector: 'app-clientes',

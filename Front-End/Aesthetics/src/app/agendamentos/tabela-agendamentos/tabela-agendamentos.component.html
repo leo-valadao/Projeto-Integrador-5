@@ -10,6 +10,7 @@
     [rows]="quantidadeAgendamentosExibidosPorPagina"
     [lazy]="true"
     [showCurrentPageReport]="true"
+    [autoLayout]="true"
     currentPageReportTemplate="Mostrando do {first}º ao {last}º de {totalRecords} agendamentos"
     [rowsPerPageOptions]="[10, 30, 50, 100]"
     (onLazyLoad)="mudarPagina($event)"
@@ -30,7 +31,7 @@
 
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th class="flex align-items-center justify-content-between">
+        <th class="flex align-items-center justify-content-between align-middle text-center">
           <p-tableHeaderCheckbox />
         </th>
 
@@ -49,7 +50,7 @@
         </td>
 
         <td *ngFor="let col of columns" class="align-middle {{ col.align }}">
-          {{ cliente[col.field] }}
+          {{ cliente[col.field]['nome'] ? cliente[col.field]['nome'] : cliente[col.field]}}
         </td>
 
         <td class="align-middle text-center gap-3">
