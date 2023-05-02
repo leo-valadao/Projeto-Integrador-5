@@ -2,9 +2,7 @@ package com.senac.aesthetics.entities.model;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,9 +26,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-
-// JSON:
-@JsonIdentityInfo(scope = Servico.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 
 // JPA:
 @Entity(name = "Servico")
@@ -58,7 +53,7 @@ public class Servico {
     private Double valor;
 
     // Relacionamentos:
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonIgnoreProperties("servicosDisponiveis")
     @ManyToMany(fetch = FetchType.LAZY, targetEntity = com.senac.aesthetics.entities.model.Profissional.class)
     @JoinTable(name = "PROFISSIONAIS_DO_SERVICO", joinColumns = @JoinColumn(name = "ID_PROFISSIONAL_FK"), inverseJoinColumns = @JoinColumn(name = "ID_SERVICO_FK"))
     private List<Profissional> profissionaisDisponiveis;
