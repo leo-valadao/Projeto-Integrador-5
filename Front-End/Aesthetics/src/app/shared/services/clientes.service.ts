@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Page } from '../entities/others/Page';
-import { Cliente } from '../entities/model/Cliente';
+import { Page } from '../entities/model/entity/page.model';
+import { Cliente } from '../entities/model/entity/cliente.model';
 import { ActiveAPIs } from 'src/environments/env-desenvolvimento';
 
 @Injectable({

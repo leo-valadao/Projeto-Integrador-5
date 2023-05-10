@@ -1,14 +1,21 @@
 {
   "version": "0.2.0",
   "configurations": [
-  
-      {
-          "name": "Debug with Chrome",
-          "type": "chrome",
-          "request": "launch",
-          "url": "http://127.0.0.1:4200/",
-          "webRoot": "${workspaceFolder}",
-          "sourceMaps": true,
-      }
+    {
+      "name": "Chrome - Debug",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://127.0.0.1:4200/",
+      "webRoot": "${workspaceFolder}",
+      "userDataDir": false
+    },
+    {
+      "name": "Firefox - Debug",
+      "type": "firefox",
+      "request": "launch",
+      "url": "http://127.0.0.1:4200/",
+      "webRoot": "${workspaceFolder}",
+      "reAttach": true
+    }
   ]
 }

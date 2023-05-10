@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Page } from '../entities/others/Page';
-import { Profissional } from '../entities/model/Profissional';
+import { Page } from '../entities/model/entity/page.model';
+import { Profissional } from '../entities/model/entity/profissional.model';
 import { ActiveAPIs } from 'src/environments/env-desenvolvimento';
 import { HttpClient } from '@angular/common/http';
 

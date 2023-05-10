@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
 import { Table } from 'primeng/table';
-import { Profissional } from 'src/app/shared/entities/model/Profissional';
+import { Profissional } from 'src/app/shared/entities/model/entity/profissional.model';
+import { ErroGenerico } from 'src/app/shared/entities/model/error/aesthetics-erro.error';
+
 import { ProfissionaisService } from 'src/app/shared/services/profissionais.service';
 
 @Component({
@@ -19,11 +21,7 @@ export class TabelaProfissionaisComponent {
     { header: 'ID', field: 'id', align: 'text-center' },
     { header: 'Nome', field: 'nome', align: 'text-center' },
     { header: 'CPF', field: 'cpf', align: 'text-center' },
-    {
-      header: 'Telefone Celular',
-      field: 'telefoneCelular',
-      align: 'text-center',
-    },
+    { header: 'Telefone Celular', field: 'telefoneCelular', align: 'text-center', },
     { header: 'Telefone Fixo', field: 'telefoneFixo', align: 'text-center' },
     { header: 'E-Mail', field: 'email', align: 'text-center' },
     { header: 'Endereço', field: 'endereco', align: 'text-center' },
@@ -53,7 +51,7 @@ export class TabelaProfissionaisComponent {
           this.profissionais = resposta.content;
           this.quantidadeTotalProfissionais = resposta.totalElements;
         },
-        error: (erro) => { },
+        error: (erro: ErroGenerico) => { },
         complete: () => { },
       });
   }
@@ -79,7 +77,7 @@ export class TabelaProfissionaisComponent {
   excluirProfissional(idProfissional: number) {
     this.clienteService.excluirProfissional(idProfissional).subscribe({
       next: (resposta) => { },
-      error: (erro) => { },
+      error: (erro: ErroGenerico) => { },
       complete: () => { this.atualizarTabela() },
     });
     this.atualizarTabela();

@@ -1,56 +1,56 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
 import { Table } from 'primeng/table';
-import { Servico } from 'src/app/shared/entities/model/Servico';
+import { Servico } from 'src/app/shared/entities/model/entity/servico.model';
+import { ErroGenerico } from 'src/app/shared/entities/model/error/aesthetics-erro.error';
 import { ServicosService } from 'src/app/shared/services/servicos.service';
 
 @Component({
   selector: 'app-tabela-servicos',
-  templateUrl: './tabela-servicos.component.html'
+  templateUrl: './tabela-servicos.component.html',
 })
 export class TabelaServicosComponent {
 
+  // Variáveis
   servicos!: Servico[];
   servicosSelecionados!: Servico[];
-  quantidadeTotalServicos:number= 10;
-  quantidadeServicosExibidosPorPagina: number= 10;
-  colunas: {header: string; field: string; align: string} [] = [
+  quantidadeTotalServicos: number = 10;
+  quantidadeServicosExibidosPorPagina: number = 10;
+  colunas: { header: string; field: string; align: string }[] = [
     { header: 'ID', field: 'id', align: 'text-center' },
     { header: 'Nome', field: 'nome', align: 'text-center' },
     { header: 'Descrição', field: 'descricao', align: 'text-center' },
     { header: 'Valor', field: 'valor', align: 'text-center' },
-    { header: 'Profissional', field: 'profissionais', align: 'text-center' },
-   
-
   ];
-  // Emissores 
+  
+  // Emissores
   @Output() exibirFormularioServico: EventEmitter<Servico> =
-  new EventEmitter<Servico>();
+    new EventEmitter<Servico>();
 
   // componentes
   @ViewChild(Table) private tabelaServicos!: Table;
 
   constructor(private clienteService: ServicosService) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   obterTodosServicos(
     numeroPagina: number,
     quantidadePorPagina: number,
     ordenarPor?: string
-
-  ):void{
+  ): void {
     this.clienteService
-    .obterServicosPorPagina(numeroPagina,quantidadePorPagina,ordenarPor)
-    .subscribe({
-      next: (resposta) => {
-        this.servicos = resposta.content;
-        this.quantidadeTotalServicos = resposta.totalElements;
-      },
-      error: (erro) => {},
-      complete: () => {},
-   });
+      .obterServicosPorPagina(numeroPagina, quantidadePorPagina, ordenarPor)
+      .subscribe({
+        next: (resposta) => {
+          this.servicos = resposta.content;
+          this.quantidadeTotalServicos = resposta.totalElements;
+        },
+        error: (erro: ErroGenerico) => {},
+        complete: () => {},
+      });
   }
+
   mudarPagina(evento: LazyLoadEvent) {
     if (evento.first != undefined && evento.rows != undefined) {
       this.obterTodosServicos(
@@ -71,23 +71,22 @@ export class TabelaServicosComponent {
 
   excluirServico(idServico: number) {
     this.clienteService.excluirServico(idServico).subscribe({
-      next: (resposta) => { },
-      error: (erro) => { },
-      complete: () => { this.atualizarTabela() },
+      next: (resposta) => {},
+      error: (erro: ErroGenerico) => {},
+      complete: () => {
+        this.atualizarTabela();
+      },
     });
     this.atualizarTabela();
   }
 
   atualizarTabela() {
-    this.obterTodosServicos(Math.floor(this.tabelaServicos.first / this.tabelaServicos.rows), this.tabelaServicos._rows);
+    this.obterTodosServicos(
+      Math.floor(this.tabelaServicos.first / this.tabelaServicos.rows),
+      this.tabelaServicos._rows
+    );
   }
 
-
-
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    
-  }
-
-
-
+  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+  //Add 'implements OnInit' to the class.
+}

@@ -4,9 +4,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,9 +24,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-
-// JSON:
-@JsonIdentityInfo(scope = Agendamento.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 
 // JPA:
 @Entity(name = "Agendamento")
@@ -57,19 +51,16 @@ public class Agendamento {
     private LocalDateTime finalizacaoAgendamento;
 
     // Relacionamentos:
-    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     @ManyToOne(fetch = FetchType.EAGER, optional = false, targetEntity = com.senac.aesthetics.entities.model.Cliente.class)
     @JoinColumn(name = "ID_CLIENTE_FK", referencedColumnName = "ID_CLIENTE", nullable = false)
     @NotNull(message = "O Agendamento Não Pode Ser Feito Sem Cliente!")
     private Cliente cliente;
 
-    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     @ManyToOne(fetch = FetchType.EAGER, optional = false, targetEntity = com.senac.aesthetics.entities.model.Profissional.class)
     @JoinColumn(name = "ID_PROFISSIONAL_FK", referencedColumnName = "ID_PROFISSIONAL", nullable = false)
     @NotNull(message = "O Agendamento Não Pode Ser Feito Sem Profissional!")
     private Profissional profissional;
 
-    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     @ManyToOne(fetch = FetchType.EAGER, optional = false, targetEntity = com.senac.aesthetics.entities.model.Servico.class)
     @JoinColumn(name = "ID_SERVICO_FK", referencedColumnName = "ID_SERVICO", nullable = false)
     @NotNull(message = "O Agendamento Não Pode Ser Feito Sem Serviço!")

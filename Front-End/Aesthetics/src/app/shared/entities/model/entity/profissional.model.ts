@@ -1,5 +1,5 @@
-import { Pessoa } from "./Pessoa";
-import { Servico } from "./Servico";
+import { Pessoa } from "./pessoa.model";
+import { Servico } from "./servico.model";
 
 export class Profissional extends Pessoa {
 

@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Profissional } from 'src/app/shared/entities/model/Profissional';
-import { Servico } from 'src/app/shared/entities/model/Servico';
+import { Profissional } from 'src/app/shared/entities/model/entity/profissional.model';
+import { Servico } from 'src/app/shared/entities/model/entity/servico.model';
+import { ErroGenerico } from 'src/app/shared/entities/model/error/aesthetics-erro.error';
 import { ProfissionaisService } from 'src/app/shared/services/profissionais.service';
 import { ServicosService } from 'src/app/shared/services/servicos.service';
 
@@ -40,7 +41,7 @@ export class FormularioServicosComponent implements OnInit {
       next: (resposta) => {
         this.profissionais = resposta.content;
       },
-      error: (erro) => {},
+      error: (erro: ErroGenerico) => {},
       complete: () => {},
     });
   }
@@ -49,7 +50,7 @@ export class FormularioServicosComponent implements OnInit {
     if (this.servico.id) {
       this.servicoService.atualizarServico(this.servico).subscribe({
         next: (resposta) => {},
-        error: (erro) => {},
+        error: (erro: ErroGenerico) => {},
         complete: () => {
           this.atualizarTabela.emit();
         },
@@ -57,7 +58,7 @@ export class FormularioServicosComponent implements OnInit {
     } else {
       this.servicoService.salvarServico(this.servico).subscribe({
         next: (resposta) => {},
-        error: (erro) => {},
+        error: (erro: ErroGenerico) => {},
         complete: () => {
           this.atualizarTabela.emit();
         },

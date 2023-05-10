@@ -7,8 +7,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.senac.aesthetics.entities.enumerables.TipoMensagemEnum;
 import com.senac.aesthetics.entities.model.Agendamento;
-import com.senac.aesthetics.error.NotFoundExeception;
+import com.senac.aesthetics.error.AestheticsExeception;
 import com.senac.aesthetics.repository.AgendamentoRepository;
 
 @Service
@@ -30,7 +31,7 @@ public class AgendamentoService {
         if (agendamentoRepository.existsById(idAgendamento)) {
             return agendamentoRepository.findById(idAgendamento).get();
         } else {
-            throw new NotFoundExeception("Agendamento Não Encontrado! ID: " + idAgendamento);
+            throw new AestheticsExeception(TipoMensagemEnum.ERROR, "Agendamento Não Encontrado! ID: " + idAgendamento);
         }
     }
 
@@ -42,7 +43,7 @@ public class AgendamentoService {
         if (agendamentoRepository.existsById(agendamento.getId())) {
             return agendamentoRepository.saveAndFlush(agendamento);
         } else {
-            throw new NotFoundExeception("Agendamento Não Encontrado! ID: " + agendamento.getId());
+            throw new AestheticsExeception(TipoMensagemEnum.ERROR, "Agendamento Não Encontrado! ID: " + agendamento.getId());
         }
     }
 
@@ -50,7 +51,7 @@ public class AgendamentoService {
         if (agendamentoRepository.existsById(idAgendamento)) {
             agendamentoRepository.deleteById(idAgendamento);
         } else {
-            throw new NotFoundExeception("Agendamento Não Encontrado! ID: " + idAgendamento);
+            throw new AestheticsExeception(TipoMensagemEnum.ERROR, "Agendamento Não Encontrado! ID: " + idAgendamento);
         }
     }
 }

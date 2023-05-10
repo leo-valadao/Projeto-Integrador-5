@@ -1,31 +1,43 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
 import { Table } from 'primeng/table';
-import { Agendamento } from 'src/app/shared/entities/model/Agendamento';
+import { Agendamento } from 'src/app/shared/entities/model/entity/agendamento.model';
+import { ErroGenerico } from 'src/app/shared/entities/model/error/aesthetics-erro.error';
+
 import { AgendamentosService } from 'src/app/shared/services/agendamentos.service';
 @Component({
   selector: 'app-tabela-agendamentos',
-  templateUrl: './tabela-agendamentos.component.html'
+  templateUrl: './tabela-agendamentos.component.html',
 })
 export class TabelaAgendamentosComponent {
-
   agendamentos!: Agendamento[];
   agendamentosSelecionados!: Agendamento[];
   quantidadeTotalAgendamentos: number = 10;
   quantidadeAgendamentosExibidosPorPagina: number = 10;
   colunas: { header: string; field: string; align: string }[] = [
     { header: 'ID', field: 'id', align: 'text-center' },
-    { header: 'Data e Horário', field: 'agendamentoDataHora', align: 'text-center' },
+    {
+      header: 'Data e Horário',
+      field: 'agendamentoDataHora',
+      align: 'text-center',
+    },
     { header: 'Duração', field: 'duracao', align: 'text-center' },
     {
       header: 'Horário Final',
       field: 'finalizacaoAgendamento',
       align: 'text-center',
     },
-    { header: 'Cliente', field: 'cliente', align: 'text-center' },
+    {
+      header: 'Cliente',
+      field: 'cliente',
+      align: 'text-center',
+    },
     { header: 'Serviço', field: 'servico', align: 'text-center' },
-    { header: 'Profissional', field: 'profissional', align: 'text-center' },
-
+    {
+      header: 'Profissional',
+      field: 'profissional',
+      align: 'text-center',
+    },
   ];
 
   // Emissores
@@ -34,9 +46,9 @@ export class TabelaAgendamentosComponent {
 
   @ViewChild(Table) private tabelaAgendamentos!: Table;
 
-  constructor(private agendamentoService: AgendamentosService) { }
+  constructor(private agendamentoService: AgendamentosService) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   obterTodosAgendamentos(
     numeroPagina: number,
@@ -50,8 +62,8 @@ export class TabelaAgendamentosComponent {
           this.agendamentos = resposta.content;
           this.quantidadeTotalAgendamentos = resposta.totalElements;
         },
-        error: (erro) => { },
-        complete: () => { },
+        error: (erro: ErroGenerico) => {},
+        complete: () => {},
       });
   }
 
@@ -65,10 +77,11 @@ export class TabelaAgendamentosComponent {
     }
   }
 
-
   mostrarFormularioAgendamentos(cliente: Agendamento | null) {
     if (cliente) {
-      this.exibirFormularioAgendamento.emit(JSON.parse(JSON.stringify(cliente)));
+      this.exibirFormularioAgendamento.emit(
+        JSON.parse(JSON.stringify(cliente))
+      );
     } else {
       this.exibirFormularioAgendamento.emit(new Agendamento());
     }
@@ -76,27 +89,19 @@ export class TabelaAgendamentosComponent {
 
   excluirAgendamento(idAgendamento: number) {
     this.agendamentoService.excluirAgendamento(idAgendamento).subscribe({
-      next: (resposta) => { },
-      error: (erro) => { },
-      complete: () => { this.atualizarTabela() },
+      next: (resposta) => {},
+      error: (erro: ErroGenerico) => {},
+      complete: () => {
+        this.atualizarTabela();
+      },
     });
     this.atualizarTabela();
   }
 
   atualizarTabela() {
-    this.obterTodosAgendamentos(Math.floor(this.tabelaAgendamentos.first / this.tabelaAgendamentos.rows), this.tabelaAgendamentos._rows);
+    this.obterTodosAgendamentos(
+      Math.floor(this.tabelaAgendamentos.first / this.tabelaAgendamentos.rows),
+      this.tabelaAgendamentos._rows
+    );
   }
-
-
-
 }
-
-
-
-
-
-
-
-
-
-

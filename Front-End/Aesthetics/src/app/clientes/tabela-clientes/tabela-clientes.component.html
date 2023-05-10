@@ -13,6 +13,7 @@
     [showCurrentPageReport]="true"
     currentPageReportTemplate="Mostrando do {first}º ao {last}º de {totalRecords} clientes"
     [rowsPerPageOptions]="[10, 30, 50, 100]"
+    [autoLayout]="true"
     (onLazyLoad)="mudarPagina($event)"
   >
     <ng-template pTemplate="caption">
@@ -32,7 +33,7 @@
 
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th class="flex align-items-center justify-content-between">
+        <th class="flex align-items-center justify-content-between align-middle text-center">
           <p-tableHeaderCheckbox />
         </th>
 
