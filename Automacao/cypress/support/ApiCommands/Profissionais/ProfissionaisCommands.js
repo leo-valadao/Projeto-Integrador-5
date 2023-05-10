@@ -7,7 +7,6 @@ Cypress.Commands.add("PostProfissional", (payload) => {
     body: payload,
     failOnStatusCode: false,
   }).then((response) => {
-    Cypress.env("profissional_id", response.body.id);
     return response;
   });
 });

@@ -9,9 +9,6 @@ Cypress.Commands.add("GetAllServicos", () => {
     },
     failOnStatusCode: false,
   }).then(function (response) {
-    Cypress.env("servico_id", response.body.content[0].id);
-    Cypress.env("servico_nome", response.body.content[0].nome);
-    Cypress.env("servico_descricao", response.body.content[0].descricao);
     return response;
   });
 });
@@ -23,7 +20,6 @@ Cypress.Commands.add("PostServico", (payload) => {
     body: payload,
     failOnStatusCode: false,
   }).then(function (response) {
-    Cypress.env("service_id", response.body.id)
     return response;
   });
 });

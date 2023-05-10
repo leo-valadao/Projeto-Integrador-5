@@ -6,6 +6,6 @@ import "./ApiCommands/Servicos/ServicosCommands";
 import "./commands";
 
 before(() => {
-  cy.GetPessoa();
+  cy.GetPessoa()
   cy.GetProfissional();
 });

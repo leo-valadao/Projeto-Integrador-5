@@ -7,9 +7,6 @@ Cypress.Commands.add("GetAllClients", () => {
     url: `${url}/cliente`,
     failOnStatusCode: false,
   }).then(function (response) {
-    Cypress.env("clienteId", response.body.content[0].id);
-    Cypress.env("cliente_del", response.body.content[3].id);
-    Cypress.env("clienteNome", response.body.content[0].nome);
     return response;
   });
 });
@@ -34,7 +31,6 @@ Cypress.Commands.add("PostCliente", (payload) => {
     body: payload,
     failOnStatusCode: false,
   }).then((response) => {
-    Cypress.env("cliente_id", response.body.id);
     return response;
   });
 });

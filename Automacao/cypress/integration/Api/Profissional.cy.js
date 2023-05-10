@@ -8,6 +8,7 @@ describe("Profissionais", () => {
   it("POST Profissional", () => {
     const payload = payloadPost();
     cy.PostProfissional(payload).then((res) => {
+      Cypress.env("profissional_id", res.body.id);
       expect(res.status).to.eql(201);
     });
   });
@@ -46,19 +47,29 @@ describe("Profissionais", () => {
     });
   });
 
-  it("DELETE Profissional", () => {
-    const id = Cypress.env("profissional_del");
-    cy.DeleteProfissional(id).then((res) => {
-      expect(res.status).to.eql(204);
+  context("DELETE", () => {
+    before(() => {
+      const payload = payloadPost();
+      cy.PostProfissional(payload).then((res) => {
+        Cypress.env("delete_id", res.body.id);
+      });
+    });
+
+    it("DELETE Profissional - True", () => {
+      const id = Cypress.env("delete_id");
+      cy.DeleteProfissional(id).then((res) => {
+        expect(res.status).to.eql(204);
+      });
+    });
+
+    it("DELETE Profissional - False", () => {
+      const id = Cypress.env("delete_id");
+      cy.DeleteProfissional(id).then((res) => {
+        expect(res.status).to.eql(500);
+        expect(res.body.message).to.eql(
+          `Profissional Não Encontrado! ID: ${id}`
+        );
+      });
     });
   });
-
-  it("DELETE Profissional", () => {
-    const id = Cypress.env("profissional_del");
-    cy.DeleteProfissional(id).then((res) => {
-      expect(res.status).to.eql(500);
-      expect(res.body.message).to.eql(`Profissional Não Encontrado! ID: ${id}`)
-    });
-  });
-
 });

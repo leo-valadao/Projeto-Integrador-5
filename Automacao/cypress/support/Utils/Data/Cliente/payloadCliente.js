@@ -6,8 +6,8 @@ export function payloadPost() {
     nome: Cypress.env("nome"),
     cpf: Cypress.env("cpf"),
     endereco: Cypress.env("endereco"),
-    telefoneFixo: Cypress.env("telefone_fixo").replace(/\s/g, ""),
-    telefoneCelular: Cypress.env("celular").replace(/\s/g, ""),
+    telefoneFixo: "(62)4018-5236",
+    telefoneCelular: "(62)98131-7252",
     email: Cypress.env("email"),
   };
 
@@ -20,8 +20,8 @@ export function payloadPut() {
     nome: Cypress.env("nome"),
     cpf: Cypress.env("cpf"),
     endereco: Cypress.env("endereco_put"),
-    telefoneFixo: Cypress.env("telefone_fixo_put").replace(/\s/g, ""),
-    telefoneCelular: Cypress.env("celular_put").replace(/\s/g, ""),
+    telefoneFixo: "(62)3018-5236",
+    telefoneCelular: "(62)99131-7252",
     email: Cypress.env("email"),
   };
 

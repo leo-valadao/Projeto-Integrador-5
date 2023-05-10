@@ -1,5 +1,5 @@
 Cypress.Commands.add("GetPessoa", () => {
-  cy.request({
+  cy.api({
     method: "POST",
     url: "https://www.4devs.com.br/ferramentas_online.php",
     form: true,

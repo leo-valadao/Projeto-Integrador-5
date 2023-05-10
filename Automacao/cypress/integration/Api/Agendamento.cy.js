@@ -3,9 +3,15 @@ import { payloadPost } from "../../support/Utils/Data/Agendamento/payloadAgendam
 
 describe("Agendamento", () => {
   before(() => {
-    cy.GetAllClients();
-    cy.GetAllServicos();
-    cy.GetAllProfissionais();
+    cy.GetAllClients().then((res) => {
+      Cypress.env("clienteId", res.body.content[0].id);
+    })
+    cy.GetAllServicos().then((res) => {
+      Cypress.env("id_profissional", res.body.content[0].id)
+    })
+    cy.GetAllProfissionais().then((res) => {
+      Cypress.env("servico_id", res.body.content[0].id)
+    })
   });
   it("POST Agendamento - Success True", () => {
     const cliente_id = Cypress.env("clienteId");
